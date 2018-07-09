@@ -11,7 +11,7 @@ public class OrderBean {
     private Long addressId;
     private Long customerId;
     private List<OrderLineItemBean> orderLineItemsList;
-    private Double orderTotal;
+    private Double totalPrice;
 
     public Long getId() {
         return id;
@@ -61,11 +61,11 @@ public class OrderBean {
         this.orderLineItemsList = orderLineItemsList;
     }
 
-    public Double getOrderTotal() {
-        return orderTotal;
+    public Double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setOrderTotal(Double orderTotal) {
-        this.orderTotal = orderTotal;
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
