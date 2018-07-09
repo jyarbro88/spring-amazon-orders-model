@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "contacts")
-public class AccountDAO {
+public class AccountBean {
 
     @Id
     @GeneratedValue
@@ -22,9 +22,9 @@ public class AccountDAO {
     @JoinColumn(name = "address_id")
     private List<AddressDAO> addressId;
 
-    public AccountDAO() { }
+    public AccountBean() { }
 
-    public AccountDAO(String firstName, String lastName, String email, List<AddressDAO> addressId) {
+    public AccountBean(String firstName, String lastName, String email, List<AddressDAO> addressId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

@@ -14,7 +14,7 @@ public class AddressDAOMapper {
         addressDAO.setZipCode(addressBean.getZipCode());
         addressDAO.setState(addressBean.getState());
         addressDAO.setCountry(addressBean.getCountry());
-        addressDAO.setAccountDAO(addressBean.getAccountDAO());
+        addressDAO.setAccountDAO(addressBean.getAccountBean());
 
         return addressDAO;
     }

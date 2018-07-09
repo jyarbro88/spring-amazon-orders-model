@@ -1,12 +1,11 @@
 package com.spring.amazondatamodel.weblayer.mappers;
 
-import com.spring.amazondatamodel.datalayer.daos.AccountDAO;
-import com.spring.amazondatamodel.weblayer.beans.AccountBean;
+import com.spring.amazondatamodel.datalayer.daos.AccountBean;
 
 public class AccountBeanMapper {
 
-    public AccountBean toBean(AccountDAO accountDAO) {
-        AccountBean accountBean = new AccountBean();
+    public com.spring.amazondatamodel.weblayer.beans.AccountBean toBean(AccountBean accountDAO) {
+        com.spring.amazondatamodel.weblayer.beans.AccountBean accountBean = new com.spring.amazondatamodel.weblayer.beans.AccountBean();
 
         accountBean.setFirstName(accountDAO.getFirstName());
         accountBean.setLastName(accountDAO.getLastName());
