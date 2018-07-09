@@ -9,6 +9,7 @@ public class AddressBean {
     private String addressTwo;
     private String city;
     private String zipCode;
+    private String state;
     private String country;
     private AccountDAO accountDAO;
 
@@ -50,6 +51,14 @@ public class AddressBean {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getCountry() {

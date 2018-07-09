@@ -1,5 +1,7 @@
 package com.spring.amazondatamodel.datalayer.daos;
 
+import com.spring.amazondatamodel.weblayer.beans.OrderLineItemBean;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -71,7 +73,7 @@ public class OrderDAO {
         return orderLineItems;
     }
 
-    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItems) {
+    public void setOrderLineItems(List<OrderLineItemBean> orderLineItems) {
         this.orderLineItems = orderLineItems;
     }
 
