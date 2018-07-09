@@ -23,7 +23,7 @@ public class AddressDAO {
     private String country;
     @ManyToMany
     @JoinColumn(name = "contact_id")
-    AccountBean accountDAO;
+    AccountDAO accountDAO;
 
     public Long getId() {
         return id;
@@ -81,11 +81,11 @@ public class AddressDAO {
         this.country = country;
     }
 
-    public AccountBean getAccountDAO() {
+    public AccountDAO getAccountDAO() {
         return accountDAO;
     }
 
-    public void setAccountDAO(AccountBean accountDAO) {
+    public void setAccountDAO(AccountDAO accountDAO) {
         this.accountDAO = accountDAO;
     }
 }
