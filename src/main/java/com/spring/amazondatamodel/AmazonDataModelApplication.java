@@ -32,18 +32,27 @@ public class AmazonDataModelApplication {
     public CommandLineRunner populateDatabase(ProductServiceImpl repository, AccountServiceImpl accountService, AddressService addressService) {
         return (args) -> {
 
-            AddressDAO addressDAO = new AddressDAO();
-
             List<AddressDAO> addressDAOS = new ArrayList<>();
 
-            addressDAO.setAddressOne("811 e stone ct");
-            addressDAO.setCity("Addison");
-            addressDAO.setState("IL");
-            addressDAO.setZipCode("60101");
+            AddressDAO addressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
 
             addressDAOS.add(addressDAO);
 
+            addressService.saveAddress(addressDAO);
+
+//            AddressDAO addressDAO = new AddressDAO();
+//
+//            List<AddressDAO> addressDAOS = new ArrayList<>();
+//
+//            addressDAO.setAddressOne("811 e stone ct");
+//            addressDAO.setCity("Addison");
+//            addressDAO.setState("IL");
+//            addressDAO.setZipCode("60101");
+//
+//            addressDAOS.add(addressDAO);
+
             Account account = new Account("Joe", "Yarbrough", "jyarbrough@email.com");
+
 
 //            account.setAddressDAOS(addressDAOS);
 

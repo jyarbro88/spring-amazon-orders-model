@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -40,7 +41,12 @@ public class AccountController {
     @ResponseBody
     public ResponseEntity addNewAccount(@Valid @RequestBody String accountJson){
         ObjectMapper mapper = new ObjectMapper();
+        List<AddressDAO> addressDAOS = new ArrayList<>();
+
+        List<Long> addressIds = new ArrayList<>();
+
         Account account;
+        AddressDAO addressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
 
         try {
             account = mapper.readValue(accountJson, Account.class);
@@ -48,14 +54,18 @@ public class AccountController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+        addressDAOS.add(addressDAO);
 //        AddressDAO addressDAO = new AddressDAO();
 //
 //        addressDAO.setId(account.getId());
 //
+        addressService.saveAddress(addressDAO);
 
+        addressIds.add(addressDAO.getId());
+        account.setAddressDAOS(addressDAOS);
+//        account.setAddressDAOS(addressDAOS);
         accountService.saveAccount(account);
-
-        addressService.saveAddress(account.getAddressDAOS().get(0));
+//        Long newAccountId = account.getId();
 
         return new ResponseEntity(HttpStatus.OK);
     }

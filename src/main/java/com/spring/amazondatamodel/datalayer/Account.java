@@ -24,6 +24,11 @@ public class Account {
     @Column(name = "email")
     @JsonProperty("email")
     private String email;
+
+//    @OneToMany(mappedBy = "addresses")
+//    private Long addressId;
+
+
     @OneToMany()
     private List<AddressDAO> addressDAOS;
 
