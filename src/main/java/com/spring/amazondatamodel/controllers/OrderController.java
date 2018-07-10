@@ -1,9 +1,8 @@
 package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.amazondatamodel.datalayer.Order;
+import com.spring.amazondatamodel.datalayer.OrderDAO;
 import com.spring.amazondatamodel.implementors.OrderServiceImpl;
-import com.spring.amazondatamodel.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +26,7 @@ public class OrderController {
 
     @GetMapping(produces = "application/json")
     @ResponseBody
-    public List<Order> showAllOrders() {
+    public List<OrderDAO> showAllOrders() {
         return orderService.getAllOrders();
     }
 
@@ -36,15 +35,15 @@ public class OrderController {
     public ResponseEntity addNewOrder(@Valid @RequestBody String orderJson) {
 
         ObjectMapper mapper = new ObjectMapper();
-        Order order;
+        OrderDAO orderDAO;
 
         try {
-            order = mapper.readValue(orderJson, Order.class);
+            orderDAO = mapper.readValue(orderJson, OrderDAO.class);
         } catch (IOException e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        orderService.saveOrder(order);
+        orderService.saveOrder(orderDAO);
 
         return new ResponseEntity(HttpStatus.OK);
     }

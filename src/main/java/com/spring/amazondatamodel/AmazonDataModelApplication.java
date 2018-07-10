@@ -1,7 +1,7 @@
 package com.spring.amazondatamodel;
 
 import com.spring.amazondatamodel.datalayer.AccountDAO;
-import com.spring.amazondatamodel.datalayer.Order;
+import com.spring.amazondatamodel.datalayer.OrderDAO;
 import com.spring.amazondatamodel.datalayer.AddressDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.OrderServiceImpl;
@@ -43,8 +43,8 @@ public class AmazonDataModelApplication {
             accountDAO.setAddressDAOS(addressDAOS);
             addressService.saveAddress(addressDAO);
             accountService.saveAccount(accountDAO);
-            Order order = new Order(new Date(2018,2,17), accountDAO.getId(), addressDAO.getId(), 23.98);
-            orderService.saveOrder(order);
+            OrderDAO orderDAO = new OrderDAO(new Date(2018,2,17), accountDAO.getId(), addressDAO.getId(), 23.98);
+            orderService.saveOrder(orderDAO);
         };
     }
 }

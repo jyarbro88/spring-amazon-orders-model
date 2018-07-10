@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.implementors;
 
-import com.spring.amazondatamodel.datalayer.Order;
+import com.spring.amazondatamodel.datalayer.OrderDAO;
 import com.spring.amazondatamodel.repositories.OrderRepository;
 import com.spring.amazondatamodel.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,22 +21,22 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Transactional
-    public void saveOrder(Order order) {
-        orderRepository.save(order);
+    public void saveOrder(OrderDAO orderDAO) {
+        orderRepository.save(orderDAO);
     }
 
     @Transactional
-    public void updateOrder(Order order) {
-        orderRepository.save(order);
+    public void updateOrder(OrderDAO orderDAO) {
+        orderRepository.save(orderDAO);
     }
 
     @Transactional
-    public void deleteOrder(Order order) {
-        orderRepository.delete(order);
+    public void deleteOrder(OrderDAO orderDAO) {
+        orderRepository.delete(orderDAO);
     }
 
     @Transactional
-    public List<Order> getAllOrders() {
+    public List<OrderDAO> getAllOrders() {
         return orderRepository.findAll();
     }
 }

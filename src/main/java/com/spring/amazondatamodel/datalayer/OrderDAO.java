@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class OrderDAO {
 
     @Id
     @GeneratedValue
@@ -49,14 +49,14 @@ public class Order {
 //    private Long orderLineItemsId;
 
 
-    public Order(Date orderDate, Long accountId, Long addressId, Double totalPrice) {
+    public OrderDAO(Date orderDate, Long accountId, Long addressId, Double totalPrice) {
         this.orderDate = orderDate;
         this.accountId = accountId;
         this.addressId = addressId;
         this.totalPrice = totalPrice;
     }
 
-    public Order() {
+    public OrderDAO() {
     }
 
     public Long getId() {

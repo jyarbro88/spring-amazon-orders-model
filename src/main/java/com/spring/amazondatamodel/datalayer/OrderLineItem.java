@@ -17,7 +17,7 @@ public class OrderLineItem {
 
 //    @ManyToOne
 //    @JoinColumn(name = "order_id")
-//    private Order orderDAO;
+//    private OrderDAO orderDAO;
 
     @Column(name = "quantity")
     private Integer quantity;
