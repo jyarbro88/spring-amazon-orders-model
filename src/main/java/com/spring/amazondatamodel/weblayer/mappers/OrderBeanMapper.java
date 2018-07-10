@@ -15,7 +15,7 @@
 //        OrderBean orderBean = new OrderBean();
 //
 //        orderBean.setAddressId(orderDAO.getAddressId());
-//        orderBean.setCustomerId(orderDAO.getCustomerId());
+//        orderBean.setAccountId(orderDAO.getAccountId());
 //        orderBean.setOrderDate(orderDAO.getOrderDate());
 //        orderBean.setOrderNumber(orderDAO.getOrderNumber());
 //        orderBean.setTotalPrice(orderDAO.getTotalPrice());

@@ -10,9 +10,9 @@ public class AddressDAO {
     @Id
     @GeneratedValue
     private Long id;
-    @ManyToMany
-    @JoinColumn(name = "accountId")
-    private Long accountId;
+//    @ManyToMany
+//    @JoinColumn(name = "accountId")
+//    private Long accountId;
     @Column(name = "address_one")
     private String addressOne;
     @Column(name = "address_two")
@@ -34,13 +34,13 @@ public class AddressDAO {
         this.id = id;
     }
 
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
+//    public Long getAccountId() {
+//        return accountId;
+//    }
+//
+//    public void setAccountId(Long accountId) {
+//        this.accountId = accountId;
+//    }
 
     public String getAddressOne() {
         return addressOne;

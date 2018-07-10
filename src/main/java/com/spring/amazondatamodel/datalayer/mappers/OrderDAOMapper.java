@@ -22,7 +22,7 @@
 //        OrderDAO orderDAO = new OrderDAO();
 //
 //        orderDAO.setAddressId(orderBean.getAddressId());
-//        orderDAO.setCustomerId(orderBean.getCustomerId());
+//        orderDAO.setAccountId(orderBean.getAccountId());
 //        orderDAO.setOrderDate(orderBean.getOrderDate());
 //        orderDAO.setOrderNumber(orderBean.getOrderNumber());
 //        orderDAO.setTotalPrice(orderBean.getTotalPrice());

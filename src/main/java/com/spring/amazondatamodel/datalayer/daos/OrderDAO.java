@@ -1,6 +1,6 @@
 //package com.spring.amazondatamodel.datalayer.daos;
 //
-//import com.spring.amazondatamodel.weblayer.beans.OrderLineItemBean;
+//import com.spring.amazondatamodel.datalayer.Account;
 //
 //import javax.persistence.*;
 //import java.util.Date;
@@ -19,14 +19,18 @@
 //    @Column(name = "order_date")
 //    private Date orderDate;
 //    @ManyToOne
-//    @JoinColumn(name = "customer_id")
-//    private Long customerId;
-//    @OneToOne
-//    @JoinColumn(name = "address_id")
-//    private Long addressId;
+//    @JoinColumn(name = "account_id", referencedColumnName = "id")
+//    private Account account;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "address_id", referencedColumnName = "id")
+//    private List<AddressDAO> addressDAOS;
 //    @OneToMany
 //    @JoinColumn(name = "order_item")
 //    private List<OrderLineItemDAO> orderLineItems;
+
+//    @OneToOne(mappedBy = "OrderLineItemDAO")
+//    private Long orderLineItemsId;
 //    @Column(name = "order_total")
 //    private Double totalPrice;
 //
@@ -54,28 +58,28 @@
 //        this.orderDate = orderDate;
 //    }
 //
-//    public Long getCustomerId() {
-//        return customerId;
+//    public Account getAccount() {
+//        return account;
 //    }
 //
-//    public void setCustomerId(Long customerId) {
-//        this.customerId = customerId;
+//    public void setAccount(Account account) {
+//        this.account = account;
 //    }
 //
-//    public Long getAddressId() {
-//        return addressId;
+//    public List<AddressDAO> getAddressDAOS() {
+//        return addressDAOS;
 //    }
 //
-//    public void setAddressId(Long addressId) {
-//        this.addressId = addressId;
+//    public void setAddressDAOS(List<AddressDAO> addressDAOS) {
+//        this.addressDAOS = addressDAOS;
 //    }
 //
-//    public List<OrderLineItemDAO> getOrderLineItems() {
-//        return orderLineItems;
+//    public Long getOrderLineItemsId() {
+//        return orderLineItemsId;
 //    }
 //
-//    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItems) {
-//        this.orderLineItems = orderLineItems;
+//    public void setOrderLineItemsId(Long orderLineItemsId) {
+//        this.orderLineItemsId = orderLineItemsId;
 //    }
 //
 //    public Double getTotalPrice() {
