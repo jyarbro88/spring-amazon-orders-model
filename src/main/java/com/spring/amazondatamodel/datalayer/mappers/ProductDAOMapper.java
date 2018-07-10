@@ -6,6 +6,7 @@ import com.spring.amazondatamodel.weblayer.beans.ProductBean;
 public class ProductDAOMapper {
 
     public ProductDAO toDAO(ProductBean productBean) {
+
         ProductDAO productDAO = new ProductDAO();
 
         productDAO.setName(productBean.getName());

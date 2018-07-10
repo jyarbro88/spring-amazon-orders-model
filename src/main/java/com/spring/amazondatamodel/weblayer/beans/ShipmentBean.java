@@ -5,8 +5,10 @@ import java.util.Date;
 public class ShipmentBean {
 
     private Long id;
-    private AddressBean addressBean;
-    private OrderLineItemBean orderLineItemBean;
+//    private AddressBean addressBean;
+//    private OrderLineItemBean orderLineItemBean;
+    private Long orderId;
+    private Long addressId;
     private Date shippedDate;
     private Date deliveryDate;
 
@@ -18,21 +20,37 @@ public class ShipmentBean {
         this.id = id;
     }
 
-    public AddressBean getAddressBean() {
-        return addressBean;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setAddressBean(AddressBean addressBean) {
-        this.addressBean = addressBean;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
-    public OrderLineItemBean getOrderLineItemBean() {
-        return orderLineItemBean;
+    public Long getAddressId() {
+        return addressId;
     }
 
-    public void setOrderLineItemBean(OrderLineItemBean orderLineItemBean) {
-        this.orderLineItemBean = orderLineItemBean;
+    public void setAddressId(Long addressId) {
+        this.addressId = addressId;
     }
+
+//    public AddressBean getAddressBean() {
+//        return addressBean;
+//    }
+//
+//    public void setAddressBean(AddressBean addressBean) {
+//        this.addressBean = addressBean;
+//    }
+//
+//    public OrderLineItemBean getOrderLineItemBean() {
+//        return orderLineItemBean;
+//    }
+//
+//    public void setOrderLineItemBean(OrderLineItemBean orderLineItemBean) {
+//        this.orderLineItemBean = orderLineItemBean;
+//    }
 
     public Date getShippedDate() {
         return shippedDate;

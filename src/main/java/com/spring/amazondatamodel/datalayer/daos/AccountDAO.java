@@ -18,15 +18,15 @@ public class AccountDAO {
     private String email;
     @OneToMany
     @JoinColumn(name = "address_id")
-    private List<AddressDAO> addressDAOS;
+    private List<AddressDAO> addressDAOs;
 
     public AccountDAO() { }
 
-    public AccountDAO(String firstName, String lastName, String email, List<AddressDAO> addressDAOS) {
+    public AccountDAO(String firstName, String lastName, String email, List<AddressDAO> addressDAOs) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.addressDAOS = addressDAOS;
+        this.addressDAOs = addressDAOs;
     }
 
     public Long getId() {
@@ -61,11 +61,11 @@ public class AccountDAO {
         this.email = email;
     }
 
-    public List<AddressDAO> getAddressDAOS() {
-        return addressDAOS;
+    public List<AddressDAO> getAddressDAOs() {
+        return addressDAOs;
     }
 
-    public void setAddressDAOS(List<AddressDAO> addressDAOS) {
-        this.addressDAOS = addressDAOS;
+    public void setAddressDAOs(List<AddressDAO> addressDAOs) {
+        this.addressDAOs = addressDAOs;
     }
 }

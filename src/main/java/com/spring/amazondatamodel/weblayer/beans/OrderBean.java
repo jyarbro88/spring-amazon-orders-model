@@ -10,7 +10,7 @@ public class OrderBean {
     private Date orderDate;
     private Long addressId;
     private Long customerId;
-    private List<OrderLineItemBean> orderLineItemsList;
+    private List<OrderLineItemBean> orderLineItemsBeans;
     private Double totalPrice;
 
     public Long getId() {
@@ -53,12 +53,12 @@ public class OrderBean {
         this.customerId = customerId;
     }
 
-    public List<OrderLineItemBean> getOrderLineItemsList() {
-        return orderLineItemsList;
+    public List<OrderLineItemBean> getOrderLineItemsBeans() {
+        return orderLineItemsBeans;
     }
 
-    public void setOrderLineItemsList(List<OrderLineItemBean> orderLineItemsList) {
-        this.orderLineItemsList = orderLineItemsList;
+    public void setOrderLineItemsBeans(List<OrderLineItemBean> orderLineItemsBeans) {
+        this.orderLineItemsBeans = orderLineItemsBeans;
     }
 
     public Double getTotalPrice() {

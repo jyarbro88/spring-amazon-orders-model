@@ -2,7 +2,9 @@ package com.spring.amazondatamodel.weblayer.mappers;
 
 import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
 import com.spring.amazondatamodel.weblayer.beans.AddressBean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AddressBeanMapper {
 
     public AddressBean toBean(AddressDAO addressDAO) {
@@ -14,7 +16,6 @@ public class AddressBeanMapper {
         addressBean.setState(addressDAO.getState());
         addressBean.setCountry(addressDAO.getCountry());
         addressBean.setZipCode(addressDAO.getZipCode());
-        addressBean.setAccountDAO(addressDAO.getAccountDAO());
 
         return addressBean;
     }

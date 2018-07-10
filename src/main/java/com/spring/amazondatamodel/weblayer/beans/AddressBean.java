@@ -1,7 +1,5 @@
 package com.spring.amazondatamodel.weblayer.beans;
 
-import com.spring.amazondatamodel.datalayer.daos.AccountDAO;
-
 public class AddressBean {
 
     private Long id;
@@ -11,7 +9,6 @@ public class AddressBean {
     private String zipCode;
     private String state;
     private String country;
-    private AccountDAO accountDAO;
 
     public Long getId() {
         return id;
@@ -69,13 +66,6 @@ public class AddressBean {
         this.country = country;
     }
 
-    public AccountDAO getAccountDAO() {
-        return accountDAO;
-    }
-
-    public void setAccountDAO(AccountDAO accountDAO) {
-        this.accountDAO = accountDAO;
-    }
 }
 
 

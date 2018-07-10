@@ -13,6 +13,7 @@ public class OrderDAO {
     @Id
     @GeneratedValue
     private Long id;
+    @GeneratedValue
     @Column(name = "order_number")
     private Long orderNumber;
     @Column(name = "order_date")

@@ -2,7 +2,9 @@ package com.spring.amazondatamodel.weblayer.mappers;
 
 import com.spring.amazondatamodel.datalayer.daos.OrderLineItemDAO;
 import com.spring.amazondatamodel.weblayer.beans.OrderLineItemBean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderLineItemBeanMapper {
 
     public OrderLineItemBean toBean(OrderLineItemDAO orderLineItemDAO) {
