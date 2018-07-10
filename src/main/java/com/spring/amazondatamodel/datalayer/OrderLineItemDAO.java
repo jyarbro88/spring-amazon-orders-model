@@ -6,14 +6,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "order_line_items")
-public class OrderLineItem {
+public class OrderLineItemDAO {
 
     @Id
     @GeneratedValue
     private Long id;
 
     @OneToMany
-    private List<Product> productList;
+    private List<ProductDAO> productDAOList;
 
 //    @ManyToOne
 //    @JoinColumn(name = "order_id")
@@ -27,22 +27,22 @@ public class OrderLineItem {
 //    private Long shipmentId;
 
 
-    public OrderLineItem(List<Product> productList, Integer quantity, Double totalPrice) {
-        this.productList = productList;
+    public OrderLineItemDAO(List<ProductDAO> productDAOList, Integer quantity, Double totalPrice) {
+        this.productDAOList = productDAOList;
         this.quantity = quantity;
         this.totalPrice = totalPrice;
     }
 
-    public OrderLineItem() {
+    public OrderLineItemDAO() {
     }
 
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<ProductDAO> getProductDAOList() {
+        return productDAOList;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setProductDAOList(List<ProductDAO> productDAOList) {
+        this.productDAOList = productDAOList;
     }
 
     public Long getId() {

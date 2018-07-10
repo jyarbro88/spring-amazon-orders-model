@@ -5,7 +5,7 @@ import java.sql.Blob;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class ProductDAO {
 
     @Id
     @GeneratedValue
@@ -19,9 +19,9 @@ public class Product {
     @Column(name = "price")
     private Double price;
 
-    public Product() { }
+    public ProductDAO() { }
 
-    public Product(String name, String description, Double price) {
+    public ProductDAO(String name, String description, Double price) {
         this.name = name;
         this.description = description;
         this.price = price;

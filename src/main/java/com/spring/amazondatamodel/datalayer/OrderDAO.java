@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.datalayer;
 
-//import com.spring.amazondatamodel.datalayer.OrderLineItem;
+//import com.spring.amazondatamodel.datalayer.OrderLineItemDAO;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -26,10 +26,10 @@ public class OrderDAO {
     private Double totalPrice;
 
     @OneToMany
-    private List<OrderLineItem> orderLineItems;
+    private List<OrderLineItemDAO> orderLineItemDAOS;
 
 
-    //    private List<OrderLineItem> orderLineItems;
+    //    private List<OrderLineItemDAO> orderLineItemDAOS;
     //    @JoinColumn(name = "id")
     //    @OneToMany
 
@@ -42,10 +42,10 @@ public class OrderDAO {
     //    @JoinColumn(name = "address_id", referencedColumnName = "id")
 //    @ManyToOne
 
-    //    private List<OrderLineItem> orderLineItems;
+    //    private List<OrderLineItemDAO> orderLineItemDAOS;
 //    @OneToMany
 
-//    @OneToOne(mappedBy = "OrderLineItem")
+//    @OneToOne(mappedBy = "OrderLineItemDAO")
 //    private Long orderLineItemsId;
 
 
@@ -91,12 +91,12 @@ public class OrderDAO {
         this.addressId = addressId;
     }
 
-//    public List<OrderLineItem> getOrderLineItems() {
-//        return orderLineItems;
+//    public List<OrderLineItemDAO> getOrderLineItems() {
+//        return orderLineItemDAOS;
 //    }
 //
-//    public void setOrderLineItems(List<OrderLineItem> orderLineItems) {
-//        this.orderLineItems = orderLineItems;
+//    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItemDAOS) {
+//        this.orderLineItemDAOS = orderLineItemDAOS;
 //    }
 
     public Double getTotalPrice() {

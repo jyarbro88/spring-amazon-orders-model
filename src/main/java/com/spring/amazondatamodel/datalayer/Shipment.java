@@ -24,11 +24,11 @@
 //
 ////    @OneToMany
 ////    @JoinColumn(name = "order_line_item_id")
-////    private OrderLineItem orderLineItemDAO;
+////    private OrderLineItemDAO orderLineItemDAO;
 //
 //
 //    @OneToMany
-//    private List<OrderLineItem> orderLineItems;
+//    private List<OrderLineItemDAO> orderLineItems;
 //
 //
 //    @OneToOne
@@ -60,11 +60,11 @@
 //        this.accountId = accountId;
 //    }
 //
-//    public List<OrderLineItem> getOrderLineItems() {
+//    public List<OrderLineItemDAO> getOrderLineItems() {
 //        return orderLineItems;
 //    }
 //
-//    public void setOrderLineItems(List<OrderLineItem> orderLineItems) {
+//    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItems) {
 //        this.orderLineItems = orderLineItems;
 //    }
 //

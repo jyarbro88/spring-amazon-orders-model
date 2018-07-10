@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.implementors;
 
-import com.spring.amazondatamodel.datalayer.OrderLineItem;
+import com.spring.amazondatamodel.datalayer.OrderLineItemDAO;
 import com.spring.amazondatamodel.repositories.OrderLineItemRepository;
 import com.spring.amazondatamodel.services.OrderLineItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,22 +20,22 @@ public class OrderLineItemServiceImpl implements OrderLineItemService {
     }
 
     @Transactional
-    public void saveOrderLineItem(OrderLineItem orderLineItem) {
-        orderLineItemRepository.save(orderLineItem);
+    public void saveOrderLineItem(OrderLineItemDAO orderLineItemDAO) {
+        orderLineItemRepository.save(orderLineItemDAO);
     }
 
     @Transactional
-    public void updateOrderLineItem(OrderLineItem orderLineItem) {
-        orderLineItemRepository.save(orderLineItem);
+    public void updateOrderLineItem(OrderLineItemDAO orderLineItemDAO) {
+        orderLineItemRepository.save(orderLineItemDAO);
     }
 
     @Transactional
-    public void deleteOrderLineItem(OrderLineItem orderLineItem) {
-        orderLineItemRepository.delete(orderLineItem);
+    public void deleteOrderLineItem(OrderLineItemDAO orderLineItemDAO) {
+        orderLineItemRepository.delete(orderLineItemDAO);
     }
 
     @Transactional
-    public List<OrderLineItem> getAllOrderLineItems() {
+    public List<OrderLineItemDAO> getAllOrderLineItems() {
         return orderLineItemRepository.findAll();
     }
 }
