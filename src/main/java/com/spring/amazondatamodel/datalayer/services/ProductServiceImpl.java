@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.datalayer.services;
 
-import com.spring.amazondatamodel.datalayer.daos.ProductDAO;
+import com.spring.amazondatamodel.datalayer.daos.Product;
 import com.spring.amazondatamodel.datalayer.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,28 +21,28 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Transactional
-    public Optional<ProductDAO> getProductById(Long id) {
+    public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
     }
 
     @Transactional
-    public void saveProduct(ProductDAO productDAO) {
-        productRepository.save(productDAO);
+    public void saveProduct(Product product) {
+        productRepository.save(product);
     }
 
     @Transactional
-    public void updateProduct(ProductDAO productDAO) {
-        productRepository.save(productDAO);
+    public void updateProduct(Product product) {
+        productRepository.save(product);
     }
 
     @Transactional
-    public void deleteProduct(ProductDAO productDAO) {
-        productRepository.delete(productDAO);
+    public void deleteProduct(Product product) {
+        productRepository.delete(product);
     }
 
     @Transactional
-    public List<ProductDAO> getAllProducts() {
-        List<ProductDAO> all = productRepository.findAll();
+    public List<Product> getAllProducts() {
+        List<Product> all = productRepository.findAll();
         return all;
     }
 }

@@ -1,19 +1,18 @@
 package com.spring.amazondatamodel.datalayer.repositories;
 
-import com.spring.amazondatamodel.datalayer.daos.ProductDAO;
+import com.spring.amazondatamodel.datalayer.daos.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 
 @Transactional
-public interface ProductRepository extends JpaRepository<ProductDAO, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
-//    public Iterable<ProductDAO> getAllBy(final String productId);
+//    public Iterable<Product> getAllBy(final String productId);
 
-//    List<ProductDAO> findByName()
+//    List<Product> findByName()
 
-    Optional<ProductDAO> findById(Long productId);
+    Optional<Product> findById(Long productId);
 
 }

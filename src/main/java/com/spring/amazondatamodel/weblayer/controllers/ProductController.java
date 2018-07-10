@@ -2,12 +2,10 @@ package com.spring.amazondatamodel.weblayer.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.spring.amazondatamodel.datalayer.daos.AccountDAO;
-import com.spring.amazondatamodel.datalayer.daos.ProductDAO;
-import com.spring.amazondatamodel.datalayer.repositories.ProductRepository;
+import com.spring.amazondatamodel.datalayer.daos.Product;
 import com.spring.amazondatamodel.datalayer.services.ProductServiceImpl;
-import com.spring.amazondatamodel.weblayer.beans.ProductBean;
+//import com.spring.amazondatamodel.weblayer.beans.ProductBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/products")
@@ -46,7 +43,7 @@ public class ProductController {
 //            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 //        }
 //
-//        ProductDAO productDAO = productRepository.save(productBean);
+//        Product productDAO = productRepository.save(productBean);
 //        List<AccountDAO> accountDAOS;
 //
 //        if ( accountId != null) {
@@ -62,29 +59,26 @@ public class ProductController {
 
     @GetMapping(produces = "application/json")
     @ResponseBody
-    public List<ProductDAO> showAllProducts() {
-
+    public List<Product> showAllProducts() {
         return productService.getAllProducts();
-
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json")
     @ResponseBody
     public ResponseEntity addNewProduct(
             @Valid
             @RequestBody String productJson) {
 
         ObjectMapper mapper = new ObjectMapper();
-
-        ProductDAO productDAO;
+        Product product;
 
         try {
-            productDAO = mapper.readValue(productJson, ProductDAO.class);
+            product = mapper.readValue(productJson, Product.class);
         } catch (IOException e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        productService.saveProduct(productDAO);
+        productService.saveProduct(product);
 
         return new ResponseEntity(HttpStatus.OK);
     }

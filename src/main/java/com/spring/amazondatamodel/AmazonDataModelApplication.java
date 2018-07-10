@@ -1,12 +1,11 @@
 package com.spring.amazondatamodel;
 
-import com.spring.amazondatamodel.datalayer.daos.ProductDAO;
+import com.spring.amazondatamodel.datalayer.daos.Product;
 import com.spring.amazondatamodel.datalayer.services.ProductServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
 
@@ -26,7 +25,7 @@ public class AmazonDataModelApplication {
     @Bean
     public CommandLineRunner populateDatabase(ProductServiceImpl repository) {
         return (args) -> {
-            repository.saveProduct(new ProductDAO("jim", "asdflkj", 22.22 ));
+            repository.saveProduct(new Product("jim", "asdflkj", 22.22 ));
         };
 
     }
