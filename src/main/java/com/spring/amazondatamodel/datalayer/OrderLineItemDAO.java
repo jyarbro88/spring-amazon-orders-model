@@ -12,12 +12,11 @@ public class OrderLineItemDAO {
     @GeneratedValue
     private Long id;
 
-    @OneToMany
-    private List<ProductDAO> productDAOList;
+//    @OneToMany
+//    private List<ProductDAO> productDAOList;
 
-//    @ManyToOne
-//    @JoinColumn(name = "order_id")
-//    private OrderDAO orderDAO;
+    @OneToOne
+    private ProductDAO productDAO;
 
     @Column(name = "quantity")
     private Integer quantity;
@@ -27,23 +26,31 @@ public class OrderLineItemDAO {
 //    private Long shipmentId;
 
 
-    public OrderLineItemDAO(List<ProductDAO> productDAOList, Integer quantity, Double totalPrice) {
-        this.productDAOList = productDAOList;
+    public OrderLineItemDAO(Integer quantity, Double totalPrice, ProductDAO productDAO) {
         this.quantity = quantity;
         this.totalPrice = totalPrice;
+        this.productDAO = productDAO;
     }
 
     public OrderLineItemDAO() {
     }
 
-
-    public List<ProductDAO> getProductDAOList() {
-        return productDAOList;
+    public ProductDAO getProductDAO() {
+        return productDAO;
     }
 
-    public void setProductDAOList(List<ProductDAO> productDAOList) {
-        this.productDAOList = productDAOList;
+    public void setProductDAO(ProductDAO productDAO) {
+        this.productDAO = productDAO;
     }
+
+
+    //    public List<ProductDAO> getProductDAOList() {
+//        return productDAOList;
+//    }
+//
+//    public void setProductDAOList(List<ProductDAO> productDAOList) {
+//        this.productDAOList = productDAOList;
+//    }
 
     public Long getId() {
         return id;

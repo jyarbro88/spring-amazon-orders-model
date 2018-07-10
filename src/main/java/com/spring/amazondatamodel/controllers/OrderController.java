@@ -2,6 +2,8 @@ package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.amazondatamodel.datalayer.OrderDAO;
+import com.spring.amazondatamodel.datalayer.OrderLineItemDAO;
+import com.spring.amazondatamodel.implementors.OrderLineItemServiceImpl;
 import com.spring.amazondatamodel.implementors.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,10 +20,12 @@ public class OrderController {
 
     private final OrderServiceImpl orderService;
 
+    private final OrderLineItemServiceImpl orderLineItemService;
 
     @Autowired
-    public OrderController(OrderServiceImpl orderService) {
+    public OrderController(OrderServiceImpl orderService, OrderLineItemServiceImpl orderLineItemService) {
         this.orderService = orderService;
+        this.orderLineItemService = orderLineItemService;
     }
 
     @GetMapping(produces = "application/json")
@@ -41,6 +45,12 @@ public class OrderController {
             orderDAO = mapper.readValue(orderJson, OrderDAO.class);
         } catch (IOException e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        List<OrderLineItemDAO> orderLineItemDAOS = orderDAO.getOrderLineItemDAOS();
+
+        for (int i = 0; i < orderLineItemDAOS.size(); i++) {
+            orderLineItemService.saveOrderLineItem(orderLineItemDAOS.get(i));
         }
 
         orderService.saveOrder(orderDAO);

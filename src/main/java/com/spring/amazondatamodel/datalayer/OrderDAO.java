@@ -29,6 +29,7 @@ public class OrderDAO {
     private List<OrderLineItemDAO> orderLineItemDAOS;
 
 
+
     //    private List<OrderLineItemDAO> orderLineItemDAOS;
     //    @JoinColumn(name = "id")
     //    @OneToMany
@@ -49,11 +50,12 @@ public class OrderDAO {
 //    private Long orderLineItemsId;
 
 
-    public OrderDAO(Date orderDate, Long accountId, Long addressId, Double totalPrice) {
+    public OrderDAO(Date orderDate, Long accountId, Long addressId, Double totalPrice, List<OrderLineItemDAO> orderLineItemDAO) {
         this.orderDate = orderDate;
         this.accountId = accountId;
         this.addressId = addressId;
         this.totalPrice = totalPrice;
+        this.orderLineItemDAOS = orderLineItemDAO;
     }
 
     public OrderDAO() {
@@ -98,6 +100,15 @@ public class OrderDAO {
 //    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItemDAOS) {
 //        this.orderLineItemDAOS = orderLineItemDAOS;
 //    }
+
+
+    public List<OrderLineItemDAO> getOrderLineItemDAOS() {
+        return orderLineItemDAOS;
+    }
+
+    public void setOrderLineItemDAOS(List<OrderLineItemDAO> orderLineItemDAOS) {
+        this.orderLineItemDAOS = orderLineItemDAOS;
+    }
 
     public Double getTotalPrice() {
         return totalPrice;
