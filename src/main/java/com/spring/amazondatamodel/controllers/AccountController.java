@@ -40,13 +40,10 @@ public class AccountController {
     @PostMapping(consumes = "application/json")
     @ResponseBody
     public ResponseEntity addNewAccount(@Valid @RequestBody String accountJson){
+
         ObjectMapper mapper = new ObjectMapper();
         List<AddressDAO> addressDAOS = new ArrayList<>();
-
-//        List<Long> addressIds = new ArrayList<>();
-
         Account account;
-        AddressDAO addressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
 
         try {
             account = mapper.readValue(accountJson, Account.class);
@@ -54,18 +51,12 @@ public class AccountController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+        AddressDAO addressDAO = account.getAddressDAOS().get(0);
         addressDAOS.add(addressDAO);
-//        AddressDAO addressDAO = new AddressDAO();
-//
-//        addressDAO.setId(account.getId());
-//
-        addressService.saveAddress(addressDAO);
 
-//        addressIds.add(addressDAO.getId());
+        addressService.saveAddress(addressDAO);
         account.setAddressDAOS(addressDAOS);
-//        account.setAddressDAOS(addressDAOS);
         accountService.saveAccount(account);
-//        Long newAccountId = account.getId();
 
         return new ResponseEntity(HttpStatus.OK);
     }

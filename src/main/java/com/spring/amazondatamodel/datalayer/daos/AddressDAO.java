@@ -22,12 +22,6 @@ public class AddressDAO {
     private String zipCode;
     @Column(name = "country")
     private String country;
-//    @ManyToOne()
-//    @JoinColumn(name = "id")
-//    private List<Long> accountIds;
-
-    @Column(name = "account_id")
-    private Long accountId;
 
     public AddressDAO(String addressOne, String addressTwo, String city, String state, String zipCode, String country) {
         this.addressOne = addressOne;
@@ -39,14 +33,6 @@ public class AddressDAO {
     }
 
     public AddressDAO() {
-    }
-
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
     }
 
     public Long getId() {
