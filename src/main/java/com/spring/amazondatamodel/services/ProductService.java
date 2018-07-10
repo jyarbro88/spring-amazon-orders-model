@@ -1,4 +1,4 @@
-package com.spring.amazondatamodel.datalayer.services;
+package com.spring.amazondatamodel.services;
 
 import com.spring.amazondatamodel.datalayer.daos.Product;
 

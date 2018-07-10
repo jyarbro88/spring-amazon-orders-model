@@ -1,7 +1,8 @@
-package com.spring.amazondatamodel.datalayer.services;
+package com.spring.amazondatamodel.implementors;
 
 import com.spring.amazondatamodel.datalayer.daos.Product;
-import com.spring.amazondatamodel.datalayer.repositories.ProductRepository;
+import com.spring.amazondatamodel.repositories.ProductRepository;
+import com.spring.amazondatamodel.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

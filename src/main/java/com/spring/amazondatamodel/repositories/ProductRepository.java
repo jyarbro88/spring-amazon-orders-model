@@ -1,4 +1,4 @@
-package com.spring.amazondatamodel.datalayer.repositories;
+package com.spring.amazondatamodel.repositories;
 
 import com.spring.amazondatamodel.datalayer.daos.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,6 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 //    List<Product> findByName()
 
-    Optional<Product> findById(Long productId);
+//    Optional<Product> findById(Long productId);
 
 }

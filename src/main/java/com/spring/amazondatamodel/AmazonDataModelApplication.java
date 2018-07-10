@@ -1,7 +1,7 @@
 package com.spring.amazondatamodel;
 
 import com.spring.amazondatamodel.datalayer.daos.Product;
-import com.spring.amazondatamodel.datalayer.services.ProductServiceImpl;
+import com.spring.amazondatamodel.implementors.ProductServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
