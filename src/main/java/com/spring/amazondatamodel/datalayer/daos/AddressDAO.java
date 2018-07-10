@@ -38,6 +38,9 @@ public class AddressDAO {
         this.country = country;
     }
 
+    public AddressDAO() {
+    }
+
     public Long getAccountId() {
         return accountId;
     }
