@@ -1,6 +1,6 @@
 //package com.spring.amazondatamodel.weblayer.mappers;
 //
-//import com.spring.amazondatamodel.datalayer.daos.AccountDAO;
+//import com.spring.amazondatamodel.datalayer.Account;
 //import com.spring.amazondatamodel.weblayer.beans.AccountBean;
 //import com.spring.amazondatamodel.weblayer.beans.AddressBean;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@
 //        this.addressBeanMapper = addressBeanMapper;
 //    }
 //
-//    public com.spring.amazondatamodel.weblayer.beans.AccountBean toBean(AccountDAO accountDAO) {
+//    public com.spring.amazondatamodel.weblayer.beans.AccountBean toBean(Account accountDAO) {
 //        AccountBean accountBean = new AccountBean();
 //
 //        accountBean.setFirstName(accountDAO.getFirstName());
