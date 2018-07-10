@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.repositories;
 
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
+import com.spring.amazondatamodel.datalayer.AddressDAO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;

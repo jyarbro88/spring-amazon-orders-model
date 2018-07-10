@@ -1,4 +1,4 @@
-package com.spring.amazondatamodel.datalayer.daos;
+package com.spring.amazondatamodel.datalayer;
 
 import javax.persistence.*;
 import java.util.List;

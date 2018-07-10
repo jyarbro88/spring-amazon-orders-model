@@ -1,8 +1,6 @@
 package com.spring.amazondatamodel.datalayer;
 
-import com.spring.amazondatamodel.datalayer.Account;
 //import com.spring.amazondatamodel.datalayer.OrderLineItem;
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
 
 import javax.persistence.*;
 import java.util.Date;

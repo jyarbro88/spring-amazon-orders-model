@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.implementors;
 
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
+import com.spring.amazondatamodel.datalayer.AddressDAO;
 import com.spring.amazondatamodel.repositories.AddressRepository;
 import com.spring.amazondatamodel.services.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;

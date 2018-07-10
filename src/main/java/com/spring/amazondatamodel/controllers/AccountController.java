@@ -2,7 +2,7 @@ package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.amazondatamodel.datalayer.Account;
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
+import com.spring.amazondatamodel.datalayer.AddressDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.AddressServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

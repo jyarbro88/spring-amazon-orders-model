@@ -1,7 +1,5 @@
 package com.spring.amazondatamodel.datalayer;
 
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
-
 import javax.persistence.*;
 import java.util.List;
 

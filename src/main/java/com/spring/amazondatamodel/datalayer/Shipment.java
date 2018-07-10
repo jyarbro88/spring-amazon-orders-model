@@ -1,6 +1,6 @@
 //package com.spring.amazondatamodel.datalayer;
 //
-//import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
+//import com.spring.amazondatamodel.datalayer.AddressDAO;
 //
 //import javax.persistence.*;
 //import java.util.Date;

@@ -2,8 +2,7 @@ package com.spring.amazondatamodel;
 
 import com.spring.amazondatamodel.datalayer.Account;
 import com.spring.amazondatamodel.datalayer.Order;
-import com.spring.amazondatamodel.datalayer.Product;
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
+import com.spring.amazondatamodel.datalayer.AddressDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.OrderServiceImpl;
 import com.spring.amazondatamodel.implementors.ProductServiceImpl;

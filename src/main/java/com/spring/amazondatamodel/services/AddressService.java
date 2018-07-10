@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.services;
 
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
+import com.spring.amazondatamodel.datalayer.AddressDAO;
 
 import java.util.List;
 
