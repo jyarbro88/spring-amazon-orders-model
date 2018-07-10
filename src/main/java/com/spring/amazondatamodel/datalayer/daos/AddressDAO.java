@@ -4,11 +4,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "addresses")
+@PrimaryKeyJoinColumn(name = "account_id")
 public class AddressDAO {
 
     @Id
     @GeneratedValue
     private Long id;
+    @ManyToMany
+    @JoinColumn(name = "account_id")
+    private Long account_id;
     @Column(name = "address_one")
     private String addressOne;
     @Column(name = "address_two")
@@ -21,9 +25,6 @@ public class AddressDAO {
     private String zipCode;
     @Column(name = "country")
     private String country;
-    @ManyToMany
-    @JoinColumn(name = "contact_id")
-    AccountDAO accountDAO;
 
     public Long getId() {
         return id;
@@ -31,6 +32,14 @@ public class AddressDAO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getAccount_id() {
+        return account_id;
+    }
+
+    public void setAccount_id(Long account_id) {
+        this.account_id = account_id;
     }
 
     public String getAddressOne() {
@@ -79,13 +88,5 @@ public class AddressDAO {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public AccountDAO getAccountDAO() {
-        return accountDAO;
-    }
-
-    public void setAccountDAO(AccountDAO accountDAO) {
-        this.accountDAO = accountDAO;
     }
 }

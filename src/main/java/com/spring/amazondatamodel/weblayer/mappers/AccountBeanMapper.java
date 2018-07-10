@@ -11,7 +11,7 @@ public class AccountBeanMapper {
         accountBean.setLastName(accountDAO.getLastName());
         accountBean.setEmail(accountDAO.getEmail());
 
-//        accountBean.setAddresses(accountDAO.getAddressId());
+//        accountBean.setAddresses(accountDAO.getAddressDAOS());
 //        Todo fix set addresses
 
         return accountBean;

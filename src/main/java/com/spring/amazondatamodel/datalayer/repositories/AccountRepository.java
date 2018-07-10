@@ -15,7 +15,7 @@ public class AccountRepository extends AbstractRepository {
     }
 
     public List<AddressDAO> findAllBy(AddressDAO addressDAO) {
-        TypedQuery<AddressDAO> query = getEntityManager().createQuery()
+        TypedQuery<AddressDAO> query = getEntityManager().createQuery();
     }
 
     private <T> String buildSqlQuery(final Class<T> tClass, final AddressDAO addressDAO) {

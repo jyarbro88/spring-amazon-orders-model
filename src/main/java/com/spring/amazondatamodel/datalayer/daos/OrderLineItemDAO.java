@@ -7,6 +7,11 @@ public class OrderLineItemDAO {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(name = "order_id")
+    private Long orderId;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderDAO orderDAO;
     @Column(name = "quantity")
     private Integer quantity;
     @Column(name = "total_price")
@@ -21,6 +26,22 @@ public class OrderLineItemDAO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public OrderDAO getOrderDAO() {
+        return orderDAO;
+    }
+
+    public void setOrderDAO(OrderDAO orderDAO) {
+        this.orderDAO = orderDAO;
     }
 
     public Integer getQuantity() {

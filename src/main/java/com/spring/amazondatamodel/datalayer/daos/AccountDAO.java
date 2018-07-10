@@ -1,7 +1,5 @@
 package com.spring.amazondatamodel.datalayer.daos;
 
-import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,17 +16,17 @@ public class AccountDAO {
     private String lastName;
     @Column(name = "email")
     private String email;
-    @ManyToMany
+    @OneToMany
     @JoinColumn(name = "address_id")
-    private List<AddressDAO> addressId;
+    private List<AddressDAO> addressDAOS;
 
     public AccountDAO() { }
 
-    public AccountDAO(String firstName, String lastName, String email, List<AddressDAO> addressId) {
+    public AccountDAO(String firstName, String lastName, String email, List<AddressDAO> addressDAOS) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.addressId = addressId;
+        this.addressDAOS = addressDAOS;
     }
 
     public Long getId() {
@@ -63,11 +61,11 @@ public class AccountDAO {
         this.email = email;
     }
 
-    public List<AddressDAO> getAddressId() {
-        return addressId;
+    public List<AddressDAO> getAddressDAOS() {
+        return addressDAOS;
     }
 
-    public void setAddressId(List<AddressDAO> addressId) {
-        this.addressId = addressId;
+    public void setAddressDAOS(List<AddressDAO> addressDAOS) {
+        this.addressDAOS = addressDAOS;
     }
 }

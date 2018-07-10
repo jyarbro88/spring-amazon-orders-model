@@ -25,7 +25,7 @@ public class OrderDAO {
     private Long addressId;
     @OneToMany
     @JoinColumn(name = "order_item")
-    private List<OrderLineItemBean> orderLineItems;
+    private List<OrderLineItemDAO> orderLineItems;
     @Column(name = "order_total")
     private Double totalPrice;
 
@@ -69,11 +69,11 @@ public class OrderDAO {
         this.addressId = addressId;
     }
 
-    public List<OrderLineItemBean> getOrderLineItems() {
+    public List<OrderLineItemDAO> getOrderLineItems() {
         return orderLineItems;
     }
 
-    public void setOrderLineItems(List<OrderLineItemBean> orderLineItems) {
+    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItems) {
         this.orderLineItems = orderLineItems;
     }
 
