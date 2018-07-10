@@ -66,14 +66,6 @@ public class Order {
         this.id = id;
     }
 
-//    public Long getOrderNumber() {
-//        return orderNumber;
-//    }
-//
-//    public void setOrderNumber(Long orderNumber) {
-//        this.orderNumber = orderNumber;
-//    }
-
     public Date getOrderDate() {
         return orderDate;
     }
