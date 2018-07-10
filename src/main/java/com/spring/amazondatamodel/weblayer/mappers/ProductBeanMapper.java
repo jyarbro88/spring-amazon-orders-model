@@ -1,6 +1,6 @@
 //package com.spring.amazondatamodel.weblayer.mappers;
 //
-//import com.spring.amazondatamodel.datalayer.daos.Product;
+//import com.spring.amazondatamodel.datalayer.Product;
 //import com.spring.amazondatamodel.weblayer.beans.ProductBean;
 //
 //public class ProductBeanMapper {

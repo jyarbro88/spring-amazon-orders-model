@@ -1,10 +1,9 @@
 package com.spring.amazondatamodel.repositories;
 
-import com.spring.amazondatamodel.datalayer.daos.Product;
+import com.spring.amazondatamodel.datalayer.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 @Transactional
 public interface ProductRepository extends JpaRepository<Product, Long> {

@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.implementors;
 
-import com.spring.amazondatamodel.datalayer.daos.Product;
+import com.spring.amazondatamodel.datalayer.Product;
 import com.spring.amazondatamodel.repositories.ProductRepository;
 import com.spring.amazondatamodel.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

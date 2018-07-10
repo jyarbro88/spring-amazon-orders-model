@@ -1,6 +1,6 @@
 package com.spring.amazondatamodel.services;
 
-import com.spring.amazondatamodel.datalayer.daos.Product;
+import com.spring.amazondatamodel.datalayer.Product;
 
 import java.util.List;
 import java.util.Optional;
