@@ -1,9 +1,11 @@
 package com.spring.amazondatamodel;
 
 import com.spring.amazondatamodel.datalayer.Account;
+import com.spring.amazondatamodel.datalayer.Order;
 import com.spring.amazondatamodel.datalayer.Product;
 import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
+import com.spring.amazondatamodel.implementors.OrderServiceImpl;
 import com.spring.amazondatamodel.implementors.ProductServiceImpl;
 import com.spring.amazondatamodel.services.AddressService;
 import org.springframework.boot.CommandLineRunner;
@@ -13,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication
@@ -29,7 +32,7 @@ public class AmazonDataModelApplication {
 //    byte[] arrayPic = new byte[(int) imgToSave.contentLength()];
 
     @Bean
-    public CommandLineRunner populateDatabase(ProductServiceImpl repository, AccountServiceImpl accountService, AddressService addressService) {
+    public CommandLineRunner populateDatabase(ProductServiceImpl repository, AccountServiceImpl accountService, AddressService addressService, OrderServiceImpl orderService) {
         return (args) -> {
 
             List<AddressDAO> addressDAOS = new ArrayList<>();
@@ -41,6 +44,8 @@ public class AmazonDataModelApplication {
             account.setAddressDAOS(addressDAOS);
             addressService.saveAddress(addressDAO);
             accountService.saveAccount(account);
+            Order order = new Order(new Date(2018,2,17), account.getId(), addressDAO.getId(), 23.98);
+            orderService.saveOrder(order);
         };
     }
 }

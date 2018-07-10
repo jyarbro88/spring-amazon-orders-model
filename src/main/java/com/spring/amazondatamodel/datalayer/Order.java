@@ -15,22 +15,22 @@ public class Order {
     @Id
     @GeneratedValue
     private Long id;
-    @GeneratedValue
-    @Column(name = "order_number")
-    private Long orderNumber;
+//    @GeneratedValue
+//    @Column(name = "order_number")
+//    private Long orderNumber;
     @Column(name = "order_date")
     private Date orderDate;
     @Column(name = "account_id")
     private Long accountId;
     @Column(name = "address_id")
     private Long addressId;
-
-
-    //    @OneToMany
-//    @JoinColumn(name = "id")
-//    private List<OrderLineItem> orderLineItems;
     @Column(name = "order_total")
     private Double totalPrice;
+
+
+    //    private List<OrderLineItem> orderLineItems;
+    //    @JoinColumn(name = "id")
+    //    @OneToMany
 
 
     //    private Account account;
@@ -47,6 +47,17 @@ public class Order {
 //    @OneToOne(mappedBy = "OrderLineItem")
 //    private Long orderLineItemsId;
 
+
+    public Order(Date orderDate, Long accountId, Long addressId, Double totalPrice) {
+        this.orderDate = orderDate;
+        this.accountId = accountId;
+        this.addressId = addressId;
+        this.totalPrice = totalPrice;
+    }
+
+    public Order() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -55,13 +66,13 @@ public class Order {
         this.id = id;
     }
 
-    public Long getOrderNumber() {
-        return orderNumber;
-    }
-
-    public void setOrderNumber(Long orderNumber) {
-        this.orderNumber = orderNumber;
-    }
+//    public Long getOrderNumber() {
+//        return orderNumber;
+//    }
+//
+//    public void setOrderNumber(Long orderNumber) {
+//        this.orderNumber = orderNumber;
+//    }
 
     public Date getOrderDate() {
         return orderDate;
