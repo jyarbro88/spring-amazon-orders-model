@@ -2,7 +2,9 @@ package com.spring.amazondatamodel.weblayer.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.amazondatamodel.datalayer.Account;
+import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
+import com.spring.amazondatamodel.implementors.AddressServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +20,13 @@ public class AccountController {
 
     private final AccountServiceImpl accountService;
 
+
+    private final AddressServiceImpl addressService;
+
     @Autowired
-    public AccountController(AccountServiceImpl accountService) {
+    public AccountController(AccountServiceImpl accountService, AddressServiceImpl addressService) {
         this.accountService = accountService;
+        this.addressService = addressService;
     }
 
     @GetMapping(produces = "application/json")
@@ -28,6 +34,7 @@ public class AccountController {
     public List<Account> showAllAccounts(){
         return accountService.getAllAccounts();
     }
+
 
     @PostMapping(consumes = "application/json")
     @ResponseBody
@@ -41,7 +48,14 @@ public class AccountController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+//        AddressDAO addressDAO = new AddressDAO();
+//
+//        addressDAO.setId(account.getId());
+//
+
         accountService.saveAccount(account);
+
+        addressService.saveAddress(account.getAddressDAOS().get(0));
 
         return new ResponseEntity(HttpStatus.OK);
     }
