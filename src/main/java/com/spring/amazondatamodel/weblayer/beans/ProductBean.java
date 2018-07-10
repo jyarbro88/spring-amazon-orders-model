@@ -7,7 +7,7 @@ public class ProductBean {
     private Long id;
     private String name;
     private String description;
-    private Blob image;
+    private byte[] image;
     private Double price;
 
     public Long getId() {
@@ -34,11 +34,11 @@ public class ProductBean {
         this.description = description;
     }
 
-    public Blob getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -48,5 +48,10 @@ public class ProductBean {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Product[id=%d, name='%s', description='%s']");
     }
 }

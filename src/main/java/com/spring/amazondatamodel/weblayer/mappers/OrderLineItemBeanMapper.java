@@ -1,19 +1,19 @@
-package com.spring.amazondatamodel.weblayer.mappers;
-
-import com.spring.amazondatamodel.datalayer.daos.OrderLineItemDAO;
-import com.spring.amazondatamodel.weblayer.beans.OrderLineItemBean;
-import org.springframework.stereotype.Component;
-
-@Component
-public class OrderLineItemBeanMapper {
-
-    public OrderLineItemBean toBean(OrderLineItemDAO orderLineItemDAO) {
-        OrderLineItemBean orderLineItemBean = new OrderLineItemBean();
-
-        orderLineItemBean.setQuantity(orderLineItemDAO.getQuantity());
-        orderLineItemBean.setShipmentId(orderLineItemDAO.getShipmentId());
-        orderLineItemBean.setTotalPrice(orderLineItemDAO.getTotalPrice());
-
-        return orderLineItemBean;
-    }
-}
+//package com.spring.amazondatamodel.weblayer.mappers;
+//
+//import com.spring.amazondatamodel.datalayer.daos.OrderLineItemDAO;
+//import com.spring.amazondatamodel.weblayer.beans.OrderLineItemBean;
+//import org.springframework.stereotype.Component;
+//
+//@Component
+//public class OrderLineItemBeanMapper {
+//
+//    public OrderLineItemBean toBean(OrderLineItemDAO orderLineItemDAO) {
+//        OrderLineItemBean orderLineItemBean = new OrderLineItemBean();
+//
+//        orderLineItemBean.setQuantity(orderLineItemDAO.getQuantity());
+//        orderLineItemBean.setShipmentId(orderLineItemDAO.getShipmentId());
+//        orderLineItemBean.setTotalPrice(orderLineItemDAO.getTotalPrice());
+//
+//        return orderLineItemBean;
+//    }
+//}

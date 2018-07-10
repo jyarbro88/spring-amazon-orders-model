@@ -14,10 +14,18 @@ public class ProductDAO {
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "image")
-    private Blob image;
+//    @Column(name = "image")
+//    private byte[] image;
     @Column(name = "price")
     private Double price;
+
+    public ProductDAO() { }
+
+    public ProductDAO(String name, String description, Double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 
     public Long getId() {
         return id;
@@ -43,13 +51,13 @@ public class ProductDAO {
         this.description = description;
     }
 
-    public Blob getImage() {
-        return image;
-    }
-
-    public void setImage(Blob image) {
-        this.image = image;
-    }
+//    public byte[] getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(byte[] image) {
+//        this.image = image;
+//    }
 
     public Double getPrice() {
         return price;

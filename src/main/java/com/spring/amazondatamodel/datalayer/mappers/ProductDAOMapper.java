@@ -11,7 +11,7 @@ public class ProductDAOMapper {
 
         productDAO.setName(productBean.getName());
         productDAO.setDescription(productBean.getDescription());
-        productDAO.setImage(productBean.getImage());
+//        productDAO.setImage(productBean.getImage());
         productDAO.setPrice(productBean.getPrice());
 
         return productDAO;

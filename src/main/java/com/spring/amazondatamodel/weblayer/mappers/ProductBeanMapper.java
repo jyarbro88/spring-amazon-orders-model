@@ -11,7 +11,7 @@ public class ProductBeanMapper {
         productBean.setName(productDAO.getName());
         productBean.setPrice(productDAO.getPrice());
         productBean.setDescription(productDAO.getDescription());
-        productBean.setImage(productDAO.getImage());
+//        productBean.setImage(productDAO.getImage());
 
         return productBean;
     }
