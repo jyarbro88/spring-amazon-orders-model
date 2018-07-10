@@ -24,6 +24,7 @@ public class Account {
 
     public Account() { }
 
+    // Todo do i send in Address object or just address id
     public Account(String firstName, String lastName, String email, List<AddressDAO> addressDAOs) {
         this.firstName = firstName;
         this.lastName = lastName;
