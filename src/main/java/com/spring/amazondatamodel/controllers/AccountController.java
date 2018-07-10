@@ -43,7 +43,7 @@ public class AccountController {
         ObjectMapper mapper = new ObjectMapper();
         List<AddressDAO> addressDAOS = new ArrayList<>();
 
-        List<Long> addressIds = new ArrayList<>();
+//        List<Long> addressIds = new ArrayList<>();
 
         Account account;
         AddressDAO addressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
@@ -61,7 +61,7 @@ public class AccountController {
 //
         addressService.saveAddress(addressDAO);
 
-        addressIds.add(addressDAO.getId());
+//        addressIds.add(addressDAO.getId());
         account.setAddressDAOS(addressDAOS);
 //        account.setAddressDAOS(addressDAOS);
         accountService.saveAccount(account);

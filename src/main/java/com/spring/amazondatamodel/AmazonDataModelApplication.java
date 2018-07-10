@@ -34,33 +34,13 @@ public class AmazonDataModelApplication {
 
             List<AddressDAO> addressDAOS = new ArrayList<>();
 
+            Account account = new Account("Joe", "Yarbrough", "jyarbrough@email.com");
             AddressDAO addressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
 
             addressDAOS.add(addressDAO);
-
+            account.setAddressDAOS(addressDAOS);
             addressService.saveAddress(addressDAO);
-
-//            AddressDAO addressDAO = new AddressDAO();
-//
-//            List<AddressDAO> addressDAOS = new ArrayList<>();
-//
-//            addressDAO.setAddressOne("811 e stone ct");
-//            addressDAO.setCity("Addison");
-//            addressDAO.setState("IL");
-//            addressDAO.setZipCode("60101");
-//
-//            addressDAOS.add(addressDAO);
-
-            Account account = new Account("Joe", "Yarbrough", "jyarbrough@email.com");
-
-
-//            account.setAddressDAOS(addressDAOS);
-
-//            repository.saveProduct(new Product("New Product", "new product description here", 22.22 ));
-
             accountService.saveAccount(account);
-
         };
-
     }
 }
