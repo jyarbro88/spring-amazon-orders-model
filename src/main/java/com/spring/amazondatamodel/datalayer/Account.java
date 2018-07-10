@@ -1,40 +1,28 @@
 package com.spring.amazondatamodel.datalayer;
 
-import com.fasterxml.jackson.annotation.*;
 import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "accounts")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Account {
 
     @Id
     @GeneratedValue
     private Long id;
     @Column(name = "first_name")
-    @JsonProperty("firstName")
     private String firstName;
     @Column(name = "last_name")
-    @JsonProperty("lastName")
     private String lastName;
     @Column(name = "email")
-    @JsonProperty("email")
     private String email;
-
-//    @OneToMany(mappedBy = "addresses")
-//    private Long addressId;
-
-
     @OneToMany
     private List<AddressDAO> addressDAOS;
 
     public Account() { }
 
-    // Todo do i send in Address object or just address id
     public Account(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
