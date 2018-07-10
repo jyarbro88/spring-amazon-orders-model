@@ -34,7 +34,7 @@ public class Order {
     //    @OneToMany
 
 
-    //    private Account account;
+    //    private AccountDAO account;
     //    @JoinColumn(name = "account_id", referencedColumnName = "id")
 //    @ManyToOne
 

@@ -1,11 +1,8 @@
 package com.spring.amazondatamodel.implementors;
 
-import com.spring.amazondatamodel.datalayer.Account;
-import com.spring.amazondatamodel.datalayer.Product;
+import com.spring.amazondatamodel.datalayer.AccountDAO;
 import com.spring.amazondatamodel.repositories.AccountRepository;
-import com.spring.amazondatamodel.repositories.ProductRepository;
 import com.spring.amazondatamodel.services.AccountService;
-import com.spring.amazondatamodel.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,27 +22,27 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Transactional
-    public Optional<Account> getAccountById(Long id){
+    public Optional<AccountDAO> getAccountById(Long id){
         return accountRepository.findById(id);
     }
 
     @Transactional
-    public void saveAccount(Account account) {
-        accountRepository.save(account);
+    public void saveAccount(AccountDAO accountDAO) {
+        accountRepository.save(accountDAO);
     }
 
     @Transactional
-    public void updateAccount(Account account) {
-        accountRepository.save(account);
+    public void updateAccount(AccountDAO accountDAO) {
+        accountRepository.save(accountDAO);
     }
 
     @Transactional
-    public void deleteAccount(Account account) {
-        accountRepository.delete(account);
+    public void deleteAccount(AccountDAO accountDAO) {
+        accountRepository.delete(accountDAO);
     }
 
     @Transactional
-    public List<Account> getAllAccounts() {
+    public List<AccountDAO> getAllAccounts() {
         return accountRepository.findAll();
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "accounts")
-public class Account {
+public class AccountDAO {
 
     @Id
     @GeneratedValue
@@ -19,9 +19,9 @@ public class Account {
     @OneToMany
     private List<AddressDAO> addressDAOS;
 
-    public Account() { }
+    public AccountDAO() { }
 
-    public Account(String firstName, String lastName, String email) {
+    public AccountDAO(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

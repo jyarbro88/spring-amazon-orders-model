@@ -1,7 +1,7 @@
 package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.amazondatamodel.datalayer.Account;
+import com.spring.amazondatamodel.datalayer.AccountDAO;
 import com.spring.amazondatamodel.datalayer.AddressDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.AddressServiceImpl;
@@ -31,7 +31,7 @@ public class AccountController {
 
     @GetMapping(produces = "application/json")
     @ResponseBody
-    public List<Account> showAllAccounts() {
+    public List<AccountDAO> showAllAccounts() {
         return accountService.getAllAccounts();
     }
 
@@ -41,28 +41,20 @@ public class AccountController {
     public ResponseEntity addNewAccount(@Valid @RequestBody String accountJson) {
 
         ObjectMapper mapper = new ObjectMapper();
-//        List<AddressDAO> addressDAOS = new ArrayList<>();
-        Account account;
+        AccountDAO accountDAO;
 
         try {
-            account = mapper.readValue(accountJson, Account.class);
+            accountDAO = mapper.readValue(accountJson, AccountDAO.class);
         } catch (IOException e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-//        AddressDAO addressDAO = account.getAddressDAOS().get(0);
-        List<AddressDAO> addressDAOS = account.getAddressDAOS();
-
-        int counter = 0;
-
+        List<AddressDAO> addressDAOS = accountDAO.getAddressDAOS();
         for (int i = 0; i < addressDAOS.size(); i++) {
             addressService.saveAddress(addressDAOS.get(i));
         }
-
-
-        account.setAddressDAOS(addressDAOS);
-        accountService.saveAccount(account);
-
+        accountDAO.setAddressDAOS(addressDAOS);
+        accountService.saveAccount(accountDAO);
 
         return new ResponseEntity(HttpStatus.OK);
     }

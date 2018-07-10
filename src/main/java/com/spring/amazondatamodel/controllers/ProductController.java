@@ -1,7 +1,7 @@
 package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.spring.amazondatamodel.datalayer.Account;
+//import com.spring.amazondatamodel.datalayer.AccountDAO;
 import com.spring.amazondatamodel.datalayer.Product;
 import com.spring.amazondatamodel.implementors.ProductServiceImpl;
 //import com.spring.amazondatamodel.weblayer.beans.ProductBean;
