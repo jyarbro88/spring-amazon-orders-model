@@ -27,6 +27,9 @@ public class Order {
     @Column(name = "order_total")
     private Double totalPrice;
 
+    @OneToMany
+    private List<OrderLineItem> orderLineItems;
+
 
     //    private List<OrderLineItem> orderLineItems;
     //    @JoinColumn(name = "id")
