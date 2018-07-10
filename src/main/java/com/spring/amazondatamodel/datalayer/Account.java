@@ -29,7 +29,7 @@ public class Account {
 //    private Long addressId;
 
 
-    @OneToMany()
+    @OneToMany
     private List<AddressDAO> addressDAOS;
 
     public Account() { }

@@ -1,29 +1,43 @@
-//package com.spring.amazondatamodel.datalayer.daos;
+//package com.spring.amazondatamodel.datalayer;
+//
+//import com.spring.amazondatamodel.datalayer.daos.AddressDAO;
 //
 //import javax.persistence.*;
 //import java.util.Date;
+//import java.util.List;
 //
 //@Entity
 //@Table(name = "shipments")
-//public class ShipmentDAO {
-
+//public class Shipment {
+//
 //    @Id
 //    @GeneratedValue
 //    private Long id;
-//    @OneToOne
-//    @JoinColumn(name = "address_id")
-//    private AddressDAO addressDAO;
-
+//
+//
+//    @ManyToOne
+//    private Long accountId;
+//
 //    @OneToOne
 //    @JoinColumn(name = "address_id")
 //    private Long addressId;
-//    @OneToMany
-//    @JoinColumn(name = "order_line_item_id")
-//    private OrderLineItemDAO orderLineItemDAO;
+//
+////    @OneToMany
+////    @JoinColumn(name = "order_line_item_id")
+////    private OrderLineItem orderLineItemDAO;
+//
 //
 //    @OneToMany
-//    @JoinColumn(name = "order_id")
+//    private List<OrderLineItem> orderLineItems;
+//
+//
+//    @OneToOne
+////    @JoinColumn(name = "order_id")
 //    private Long orderId;
+//
+//
+//
+//
 //    @Column(name = "shipped_date")
 //    private Date shippedDate;
 //    @Column(name = "delivery_date")
@@ -38,6 +52,22 @@
 //        this.id = id;
 //    }
 //
+//    public Long getAccountId() {
+//        return accountId;
+//    }
+//
+//    public void setAccountId(Long accountId) {
+//        this.accountId = accountId;
+//    }
+//
+//    public List<OrderLineItem> getOrderLineItems() {
+//        return orderLineItems;
+//    }
+//
+//    public void setOrderLineItems(List<OrderLineItem> orderLineItems) {
+//        this.orderLineItems = orderLineItems;
+//    }
+//
 //    public Long getOrderId() {
 //        return orderId;
 //    }
@@ -45,29 +75,13 @@
 //    public void setOrderId(Long orderId) {
 //        this.orderId = orderId;
 //    }
-
-    //    public AddressDAO getAddressDAO() {
-//        return addressDAO;
-//    }
 //
-//    public void setAddressDAO(AddressDAO addressDAO) {
-//        this.addressDAO = addressDAO;
-//    }
-
 //    public Long getAddressId() {
 //        return addressId;
 //    }
 //
 //    public void setAddressId(Long addressId) {
 //        this.addressId = addressId;
-//    }
-
-//    public OrderLineItemDAO getOrderLineItemDAO() {
-//        return orderLineItemDAO;
-//    }
-//
-//    public void setOrderLineItemDAO(OrderLineItemDAO orderLineItemDAO) {
-//        this.orderLineItemDAO = orderLineItemDAO;
 //    }
 //
 //    public Date getShippedDate() {
