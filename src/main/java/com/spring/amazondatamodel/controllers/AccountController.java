@@ -1,4 +1,4 @@
-package com.spring.amazondatamodel.weblayer.controllers;
+package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.amazondatamodel.datalayer.Account;
