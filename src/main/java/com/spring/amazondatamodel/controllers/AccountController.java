@@ -32,17 +32,17 @@ public class AccountController {
 
     @GetMapping(produces = "application/json")
     @ResponseBody
-    public List<Account> showAllAccounts(){
+    public List<Account> showAllAccounts() {
         return accountService.getAllAccounts();
     }
 
 
     @PostMapping(consumes = "application/json")
     @ResponseBody
-    public ResponseEntity addNewAccount(@Valid @RequestBody String accountJson){
+    public ResponseEntity addNewAccount(@Valid @RequestBody String accountJson) {
 
         ObjectMapper mapper = new ObjectMapper();
-        List<AddressDAO> addressDAOS = new ArrayList<>();
+//        List<AddressDAO> addressDAOS = new ArrayList<>();
         Account account;
 
         try {
@@ -51,12 +51,19 @@ public class AccountController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        AddressDAO addressDAO = account.getAddressDAOS().get(0);
-        addressDAOS.add(addressDAO);
+//        AddressDAO addressDAO = account.getAddressDAOS().get(0);
+        List<AddressDAO> addressDAOS = account.getAddressDAOS();
 
-        addressService.saveAddress(addressDAO);
+        int counter = 0;
+
+        for (int i = 0; i < addressDAOS.size(); i++) {
+            addressService.saveAddress(addressDAOS.get(i));
+        }
+
+
         account.setAddressDAOS(addressDAOS);
         accountService.saveAccount(account);
+
 
         return new ResponseEntity(HttpStatus.OK);
     }
