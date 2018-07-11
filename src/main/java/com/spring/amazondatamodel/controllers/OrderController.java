@@ -1,8 +1,10 @@
 package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring.amazondatamodel.CalculateUtil;
 import com.spring.amazondatamodel.datalayer.OrderDAO;
 import com.spring.amazondatamodel.datalayer.OrderLineItemDAO;
+import com.spring.amazondatamodel.datalayer.ProductDAO;
 import com.spring.amazondatamodel.implementors.OrderLineItemServiceImpl;
 import com.spring.amazondatamodel.implementors.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
+
+    // Todo:  CRUD Handle PUT operation
+    // Todo:  CRUD Handle DELETE operation
 
     private final OrderServiceImpl orderService;
 
@@ -37,7 +42,7 @@ public class OrderController {
     @PostMapping(consumes = "application/json")
     @ResponseBody
     public ResponseEntity addNewOrder(@Valid @RequestBody String orderJson) {
-
+        CalculateUtil calculateUtil = new CalculateUtil();
         ObjectMapper mapper = new ObjectMapper();
         OrderDAO orderDAO;
 
@@ -50,7 +55,15 @@ public class OrderController {
         List<OrderLineItemDAO> orderLineItemDAOS = orderDAO.getOrderLineItemDAOS();
 
         for (int i = 0; i < orderLineItemDAOS.size(); i++) {
-            orderLineItemService.saveOrderLineItem(orderLineItemDAOS.get(i));
+
+            OrderLineItemDAO orderLineItemDAO = orderLineItemDAOS.get(i);
+            Integer quantity = orderLineItemDAO.getQuantity();
+            ProductDAO productDAO = orderLineItemDAO.getProductDAO();
+            Double price = productDAO.getPrice();
+            Double totalPriceForLineItem = calculateUtil.calculatePriceBeforeTax(price, quantity);
+            orderLineItemDAO.setLineItemTotalPrice(totalPriceForLineItem);
+
+            orderLineItemService.saveOrderLineItem(orderLineItemDAO);
         }
 
         orderService.saveOrder(orderDAO);

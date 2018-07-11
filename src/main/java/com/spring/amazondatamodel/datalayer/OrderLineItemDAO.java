@@ -1,8 +1,6 @@
 package com.spring.amazondatamodel.datalayer;
 
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "order_line_items")
@@ -11,46 +9,29 @@ public class OrderLineItemDAO {
     @Id
     @GeneratedValue
     private Long id;
-
-//    @OneToMany
-//    private List<ProductDAO> productDAOList;
-
     @OneToOne
     private ProductDAO productDAO;
-
     @Column(name = "quantity")
     private Integer quantity;
     @Column(name = "total_price")
-    private Double totalPrice;
+    private Double lineItemTotalPrice;
 //    @OneToOne
 //    private Long shipmentId;
 
 
-    public OrderLineItemDAO(Integer quantity, Double totalPrice, ProductDAO productDAO) {
+    public OrderLineItemDAO(Integer quantity, Double lineItemTotalPrice, ProductDAO productDAO) {
         this.quantity = quantity;
-        this.totalPrice = totalPrice;
         this.productDAO = productDAO;
+        this.lineItemTotalPrice = lineItemTotalPrice;
     }
 
-    public OrderLineItemDAO() {
-    }
+    public OrderLineItemDAO() { }
 
-    public ProductDAO getProductDAO() {
-        return productDAO;
-    }
+    public ProductDAO getProductDAO() { return productDAO; }
 
     public void setProductDAO(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
-
-
-    //    public List<ProductDAO> getProductDAOList() {
-//        return productDAOList;
-//    }
-//
-//    public void setProductDAOList(List<ProductDAO> productDAOList) {
-//        this.productDAOList = productDAOList;
-//    }
 
     public Long getId() {
         return id;
@@ -60,15 +41,6 @@ public class OrderLineItemDAO {
         this.id = id;
     }
 
-//
-//    public Long getOrderId() {
-//        return orderId;
-//    }
-//
-//    public void setOrderId(Long orderId) {
-//        this.orderId = orderId;
-//    }
-
     public Integer getQuantity() {
         return quantity;
     }
@@ -77,12 +49,12 @@ public class OrderLineItemDAO {
         this.quantity = quantity;
     }
 
-    public Double getTotalPrice() {
-        return totalPrice;
+    public Double getLineItemTotalPrice() {
+        return lineItemTotalPrice;
     }
 
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setLineItemTotalPrice(Double lineItemTotalPrice) {
+        this.lineItemTotalPrice = lineItemTotalPrice;
     }
 
 //    public Long getShipmentId() {
