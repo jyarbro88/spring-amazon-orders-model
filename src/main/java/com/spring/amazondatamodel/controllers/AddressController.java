@@ -7,11 +7,14 @@ import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.AddressServiceImpl;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,27 +41,46 @@ public class AddressController {
     @ResponseBody
     public List<AddressDAO> showAllAddressesForCustomer(
             @Valid
-            @PathVariable(value = "accountId") Long accountId){
-
-        Integer counter = 0;
+            @PathVariable(value = "accountId") Long accountId) {
 
         Optional<AccountDAO> foundAccountById = accountService.getAccountById(accountId);
         AccountDAO foundAccountDAO = foundAccountById.get();
 
-//        int sizeOfFoundAddressList = foundListOfAddressDAOS.size();
-//
-//        while(counter < sizeOfFoundAddressList) {
-//            counter++;
-//            AddressDAO addressDAO = foundListOfAddressDAOS.get(counter);
-////            Long addressId = addressDAO.getId();
-////
-////            Optional<AddressDAO> foundAddressById = addressService.getAddressById(addressId);
-////            AddressDAO foundAddressDAO = foundAddressById.get();
-//
-//            foundListOfAddressDAOS.add(addressDAO);
-//        }
-
         return foundAccountDAO.getAddressDAOS();
     }
 
+    @PutMapping(
+            value = {"/{addressId}"},
+            consumes = {"application/json"}
+    )
+    @ResponseBody
+    public ResponseEntity updateAddress(
+            @Valid
+            @RequestBody String addressJson,
+            @PathVariable(value = "addressId") Long addressId
+    ) {
+        ObjectMapper mapper = new ObjectMapper();
+        AddressDAO mappedAddressDAO;
+
+        Optional<AddressDAO> foundAddressById = addressService.getAddressById(addressId);
+        AddressDAO foundAddressDAO = foundAddressById.get();
+
+        try {
+            mappedAddressDAO = mapper.readValue(addressJson, AddressDAO.class);
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        foundAddressDAO.setAddressOne(mappedAddressDAO.getAddressOne());
+        foundAddressDAO.setAddressTwo(mappedAddressDAO.getAddressTwo());
+        foundAddressDAO.setCity(mappedAddressDAO.getCity());
+        foundAddressDAO.setState(mappedAddressDAO.getState());
+        foundAddressDAO.setZipCode(mappedAddressDAO.getZipCode());
+        foundAddressDAO.setCountry(mappedAddressDAO.getCountry());
+
+        addressService.updateAddress(foundAddressDAO);
+
+        return new ResponseEntity(HttpStatus.OK);
+
+    }
 }

@@ -64,20 +64,20 @@ public class ProductController {
             @PathVariable(value = "productId") Long productId
     ) {
 
-        ProductDAO productDAO;
+        ProductDAO mappedProductDAO;
         Optional<ProductDAO> foundProduct = productService.getProductById(productId);
         ProductDAO foundProductDAO = foundProduct.get();
 
         try {
-            productDAO = mapper.readValue(productJson, ProductDAO.class);
+            mappedProductDAO = mapper.readValue(productJson, ProductDAO.class);
 
         } catch (IOException e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        foundProductDAO.setName(productDAO.getName());
-        foundProductDAO.setDescription(productDAO.getDescription());
-        foundProductDAO.setPrice(productDAO.getPrice());
+        foundProductDAO.setName(mappedProductDAO.getName());
+        foundProductDAO.setDescription(mappedProductDAO.getDescription());
+        foundProductDAO.setPrice(mappedProductDAO.getPrice());
 
         productService.updateProduct(foundProductDAO);
 
