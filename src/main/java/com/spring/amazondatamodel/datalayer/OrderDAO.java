@@ -34,6 +34,21 @@ public class OrderDAO {
     //    @JoinColumn(name = "id")
     //    @OneToMany
 
+    // Todo:  Add Address Object to Order
+    // Todo:  Add Account Object to Order
+    // Todo:  Total up the OrderTotal based on OrderLineItemDAO total (which totals up based on qty)
+    // Todo:  Add Shipping Address Object to Order
+
+    // Todo:  Need to total up OrderLineItem qty and then multiply by price to hand back to OrderDAO
+
+
+    // Todo:  Get ShipmentDAO implemented
+
+    // Todo:  All CRUD Operations for Address
+    // Todo:  All CRUD Operations for OrderLineItem
+    // Todo:  All CRUD Operations for Shipment
+
+
 
     //    private AccountDAO account;
     //    @JoinColumn(name = "account_id", referencedColumnName = "id")
