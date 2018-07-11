@@ -16,8 +16,11 @@ public class OrderDAO {
     private Date orderDate;
     @Column(name = "account_id")
     private Long accountId;
-    @Column(name = "address_id")
-    private Long addressId;
+    @Column(name = "shipping_address_id", insertable = false, updatable = false)
+    private Long shippingAddressId;
+    @Column(name = "billing_address_id", insertable = false, updatable = false)
+    private Long billAddressId;
+
     @Column(name = "order_total")
     private Double totalPrice;
     @OneToMany
@@ -36,10 +39,11 @@ public class OrderDAO {
     // Todo:  All CRUD Operations for Shipment
 
 
-    public OrderDAO(Date orderDate, Long accountId, Long addressId, Double totalPrice, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
+    public OrderDAO(Date orderDate, Long accountId, Long shippingAddressId, Long billAddressId, Double totalPrice, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
         this.orderDate = orderDate;
         this.accountId = accountId;
-        this.addressId = addressId;
+        this.shippingAddressId = shippingAddressId;
+        this.billAddressId = billAddressId;
         this.totalPrice = totalPrice;
         this.orderLineItemDAOS = orderLineItemDAOS;
         this.accountDAO = accountDAO;
@@ -98,12 +102,20 @@ public class OrderDAO {
         this.accountId = accountId;
     }
 
-    public Long getAddressId() {
-        return addressId;
+    public Long getShippingAddressId() {
+        return shippingAddressId;
     }
 
-    public void setAddressId(Long addressId) {
-        this.addressId = addressId;
+    public void setShippingAddressId(Long shippingAddressId) {
+        this.shippingAddressId = shippingAddressId;
+    }
+
+    public Long getBillAddressId() {
+        return billAddressId;
+    }
+
+    public void setBillAddressId(Long billAddressId) {
+        this.billAddressId = billAddressId;
     }
 
     public List<OrderLineItemDAO> getOrderLineItemDAOS() {

@@ -66,19 +66,24 @@ public class OrderController {
         }
 
         Long accountId = orderDAO.getAccountId();
-        Long addressId = orderDAO.getAddressId();
+        Long billAddressId = orderDAO.getBillAddressId();
+        Long shippingAddressId = orderDAO.getShippingAddressId();
+
+        Double orderTotal = 0.00;
+
+        Optional<AddressDAO> foundBillingAddressById = addressService.getAddressById(billAddressId);
+        Optional<AddressDAO> foundShippingAddressById = addressService.getAddressById(shippingAddressId);
+        Optional<AccountDAO> foundAccountById = accountService.getAccountById(accountId);
 
         List<OrderLineItemDAO> orderLineItemDAOS = orderDAO.getOrderLineItemDAOS();
 
-        Optional<AddressDAO> foundAddressById = addressService.getAddressById(addressId);
-        AddressDAO foundAddressDAO = foundAddressById.get();
-        orderDAO.setShippingAddress(foundAddressDAO);
-
-        Optional<AccountDAO> foundAccountById = accountService.getAccountById(accountId);
+        AddressDAO foundShippingAddressDAO = foundShippingAddressById.get();
+        AddressDAO foundBillingAddressDAO = foundBillingAddressById.get();
         AccountDAO foundAccountDAO = foundAccountById.get();
 
+        orderDAO.setShippingAddress(foundShippingAddressDAO);
         orderDAO.setAccountDAO(foundAccountDAO);
-        orderDAO.setBillingAddress(foundAddressDAO);
+        orderDAO.setBillingAddress(foundBillingAddressDAO);
 
         for (int i = 0; i < orderLineItemDAOS.size(); i++) {
 
@@ -92,7 +97,6 @@ public class OrderController {
             orderLineItemService.saveOrderLineItem(orderLineItemDAO);
         }
 
-        Double orderTotal = 0.00;
 
         for (OrderLineItemDAO orderLineItemDAO: orderLineItemDAOS) {
 
@@ -100,9 +104,7 @@ public class OrderController {
         }
 
         Double orderTotalAfterTaxes = calculateUtil.calculatePriceAfterTax(orderTotal);
-
         orderDAO.setTotalPrice(orderTotalAfterTaxes);
-
         orderService.saveOrder(orderDAO);
 
         return new ResponseEntity(HttpStatus.OK);

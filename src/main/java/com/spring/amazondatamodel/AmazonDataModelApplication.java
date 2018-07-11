@@ -42,12 +42,10 @@ public class AmazonDataModelApplication {
             List<OrderLineItemDAO> orderLineItemDAOS = new ArrayList<>();
 
             AccountDAO accountDAO = new AccountDAO("Joe", "Yarbrough", "jyarbrough@email.com");
-            AddressDAO addressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
+            AddressDAO billingAddressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
+            AddressDAO shippingAddressDAO = new AddressDAO("421 E Red Oak Dr", "", "Bensenville", "IL", "60701", "USA");
             ProductDAO productDAO = new ProductDAO("product name", "product description", 11.99);
             ProductDAO productDAO2 = new ProductDAO("second product name", "product description", 111.99);
-
-
-
 
 
 //            OrderLineItemDAO orderLineItemDAO = new OrderLineItemDAO(1, 33.00, productDAO);
@@ -62,11 +60,13 @@ public class AmazonDataModelApplication {
 //            orderLineItemService.saveOrderLineItem(orderLineItemDAO);
 //            orderLineItemService.saveOrderLineItem(orderLineItemDAO2);
 
-            addressDAOS.add(addressDAO);
+            addressDAOS.add(billingAddressDAO);
             accountDAO.setAddressDAOS(addressDAOS);
-            addressService.saveAddress(addressDAO);
+
+            addressService.saveAddress(billingAddressDAO);
+            addressService.saveAddress(shippingAddressDAO);
             accountService.saveAccount(accountDAO);
-            OrderDAO orderDAO = new OrderDAO(new Date(2018,2,17), accountDAO.getId(), addressDAO.getId(), 23.98, orderLineItemDAOS, accountDAO, addressDAO, addressDAO);
+            OrderDAO orderDAO = new OrderDAO(new Date(2018, 2, 17), accountDAO.getId(), shippingAddressDAO.getId(), billingAddressDAO.getId(), 23.98, orderLineItemDAOS, accountDAO, billingAddressDAO, shippingAddressDAO);
             orderService.saveOrder(orderDAO);
         };
     }
