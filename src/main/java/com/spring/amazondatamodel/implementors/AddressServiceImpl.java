@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class AddressServiceImpl implements AddressService {
@@ -18,6 +19,11 @@ public class AddressServiceImpl implements AddressService {
     @Autowired
     public AddressServiceImpl(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
+    }
+
+    @Transactional
+    public Optional<AddressDAO> getAddressById(Long id) {
+        return addressRepository.findById(id);
     }
 
     @Transactional

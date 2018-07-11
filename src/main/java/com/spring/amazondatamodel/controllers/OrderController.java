@@ -41,7 +41,11 @@ public class OrderController {
 
     @PostMapping(consumes = "application/json")
     @ResponseBody
-    public ResponseEntity addNewOrder(@Valid @RequestBody String orderJson) {
+    public ResponseEntity addNewOrder(
+            @Valid
+            @RequestBody String orderJson
+
+    ) {
         CalculateUtil calculateUtil = new CalculateUtil();
         ObjectMapper mapper = new ObjectMapper();
         OrderDAO orderDAO;

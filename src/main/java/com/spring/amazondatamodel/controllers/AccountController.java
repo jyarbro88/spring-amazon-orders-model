@@ -22,9 +22,7 @@ public class AccountController {
     // Todo:  Handle Put operation
 
     private final AccountServiceImpl accountService;
-
-
-    private final AddressServiceImpl addressService;
+    private AddressServiceImpl addressService;
 
     @Autowired
     public AccountController(AccountServiceImpl accountService, AddressServiceImpl addressService) {

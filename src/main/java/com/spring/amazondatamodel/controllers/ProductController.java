@@ -88,7 +88,9 @@ public class ProductController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = {"/{productId}"}, consumes = {"application/json"})
+    @DeleteMapping(
+            value = {"/{productId}"},
+            consumes = {"application/json"})
     @ResponseBody
     public ResponseEntity deleteProduct(
             @Valid
