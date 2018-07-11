@@ -43,7 +43,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Transactional
     public List<ProductDAO> getAllProducts() {
-        List<ProductDAO> allProductsFound = productRepository.findAll();
-        return allProductsFound;
+        return productRepository.findAll();
     }
 }
