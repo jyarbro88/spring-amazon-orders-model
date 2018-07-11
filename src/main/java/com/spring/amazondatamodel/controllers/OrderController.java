@@ -66,17 +66,19 @@ public class OrderController {
         }
 
         Long accountId = orderDAO.getAccountId();
-//        Long addressId = orderDAO.getAddressId();
+        Long addressId = orderDAO.getAddressId();
 
         List<OrderLineItemDAO> orderLineItemDAOS = orderDAO.getOrderLineItemDAOS();
 
-//        Optional<AddressDAO> foundAddressById = addressService.getAddressById(addressId);
-//        AddressDAO foundAddressDAO = foundAddressById.get();
+        Optional<AddressDAO> foundAddressById = addressService.getAddressById(addressId);
+        AddressDAO foundAddressDAO = foundAddressById.get();
+        orderDAO.setShippingAddress(foundAddressDAO);
 
         Optional<AccountDAO> foundAccountById = accountService.getAccountById(accountId);
         AccountDAO foundAccountDAO = foundAccountById.get();
 
         orderDAO.setAccountDAO(foundAccountDAO);
+        orderDAO.setBillingAddress(foundAddressDAO);
 
         for (int i = 0; i < orderLineItemDAOS.size(); i++) {
 
