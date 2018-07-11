@@ -15,17 +15,14 @@ public class OrderLineItemDAO {
     private Integer quantity;
     @Column(name = "total_price")
     private Double lineItemTotalPrice;
-//    @OneToOne
-//    private Long shipmentId;
 
+    public OrderLineItemDAO() { }
 
     public OrderLineItemDAO(Integer quantity, Double lineItemTotalPrice, ProductDAO productDAO) {
         this.quantity = quantity;
         this.productDAO = productDAO;
         this.lineItemTotalPrice = lineItemTotalPrice;
     }
-
-    public OrderLineItemDAO() { }
 
     public ProductDAO getProductDAO() { return productDAO; }
 
@@ -56,12 +53,4 @@ public class OrderLineItemDAO {
     public void setLineItemTotalPrice(Double lineItemTotalPrice) {
         this.lineItemTotalPrice = lineItemTotalPrice;
     }
-
-//    public Long getShipmentId() {
-//        return shipmentId;
-//    }
-//
-//    public void setShipmentId(Long shipmentId) {
-//        this.shipmentId = shipmentId;
-//    }
 }

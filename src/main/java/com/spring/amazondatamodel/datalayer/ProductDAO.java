@@ -14,8 +14,6 @@ public class ProductDAO {
     private String name;
     @Column(name = "description")
     private String description;
-//    @Column(name = "image")
-//    private byte[] image;
     @Column(name = "price")
     private Double price;
 
@@ -50,14 +48,6 @@ public class ProductDAO {
     public void setDescription(String description) {
         this.description = description;
     }
-
-//    public byte[] getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(byte[] image) {
-//        this.image = image;
-//    }
 
     public Double getPrice() {
         return price;

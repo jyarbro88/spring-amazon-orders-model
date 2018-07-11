@@ -23,6 +23,8 @@ public class AddressDAO {
     @Column(name = "country")
     private String country;
 
+    public AddressDAO() { }
+
     public AddressDAO(String addressOne, String addressTwo, String city, String state, String zipCode, String country) {
         this.addressOne = addressOne;
         this.addressTwo = addressTwo;
@@ -30,9 +32,6 @@ public class AddressDAO {
         this.state = state;
         this.zipCode = zipCode;
         this.country = country;
-    }
-
-    public AddressDAO() {
     }
 
     public Long getId() {

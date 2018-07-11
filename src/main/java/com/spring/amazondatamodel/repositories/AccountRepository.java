@@ -8,7 +8,4 @@ import javax.transaction.Transactional;
 @Transactional
 public interface AccountRepository extends JpaRepository<AccountDAO, Long> {
 
-    //business logic goes here
-
-
 }

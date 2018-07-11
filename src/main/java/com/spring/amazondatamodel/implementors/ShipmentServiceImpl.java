@@ -12,7 +12,6 @@ import java.util.List;
 @Component
 public class ShipmentServiceImpl implements ShipmentService {
 
-
     private final ShipmentRepository shipmentRepository;
 
     @Autowired

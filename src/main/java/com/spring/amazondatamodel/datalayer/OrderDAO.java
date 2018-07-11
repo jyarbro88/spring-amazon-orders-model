@@ -23,7 +23,6 @@ public class OrderDAO {
     @Column(name = "order_total")
     private Double totalPrice;
 
-
     @OneToMany
     private List<OrderLineItemDAO> orderLineItemDAOS;
     @OneToOne
@@ -32,6 +31,8 @@ public class OrderDAO {
     private AddressDAO billingAddress;
     @OneToOne
     private AddressDAO shippingAddress;
+
+    public OrderDAO() { }
 
     public OrderDAO(Date orderDate, Long accountId, Long shippingAddressId, Long billAddressId, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
         this.orderDate = orderDate;
@@ -42,9 +43,6 @@ public class OrderDAO {
         this.accountDAO = accountDAO;
         this.billingAddress = billingAddress;
         this.shippingAddress = shippingAddress;
-    }
-
-    public OrderDAO() {
     }
 
     public AccountDAO getAccountDAO() {
