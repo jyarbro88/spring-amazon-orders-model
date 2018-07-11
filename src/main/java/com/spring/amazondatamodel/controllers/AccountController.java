@@ -4,9 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.amazondatamodel.datalayer.AccountDAO;
 import com.spring.amazondatamodel.datalayer.AddressDAO;
 import com.spring.amazondatamodel.datalayer.OrderDAO;
+import com.spring.amazondatamodel.datalayer.ShipmentDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.AddressServiceImpl;
 import com.spring.amazondatamodel.implementors.OrderServiceImpl;
+import com.spring.amazondatamodel.implementors.ShipmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +28,14 @@ public class AccountController {
     private final AccountServiceImpl accountService;
     private final AddressServiceImpl addressService;
     private final OrderServiceImpl orderService;
+    private final ShipmentServiceImpl shipmentService;
 
     @Autowired
-    public AccountController(AccountServiceImpl accountService, AddressServiceImpl addressService, OrderServiceImpl orderService) {
+    public AccountController(AccountServiceImpl accountService, AddressServiceImpl addressService, OrderServiceImpl orderService, ShipmentServiceImpl shipmentService) {
         this.accountService = accountService;
         this.addressService = addressService;
         this.orderService = orderService;
+        this.shipmentService = shipmentService;
     }
 
     @GetMapping(produces = "application/json")
@@ -47,6 +51,18 @@ public class AccountController {
             @PathVariable(value = "accountId") Long accountId) {
 
         return orderService.getAllOrdersWithAccountId(accountId);
+    }
+
+    @GetMapping(
+            value = {"/shipments/{accountId}"},
+            produces = {"application/json"}
+    )
+    @ResponseBody
+    public List<ShipmentDAO> showAllShipmentsForAccount(
+            @Valid
+            @PathVariable(value = "accountId") Long accountId
+    ) {
+        return shipmentService.getAllShipmentsForAccount(accountId);
     }
 
 

@@ -40,4 +40,9 @@ public class ShipmentServiceImpl implements ShipmentService {
     public List<ShipmentDAO> getAllShipments() {
         return shipmentRepository.findAll();
     }
+
+    @Transactional
+    public List<ShipmentDAO> getAllShipmentsForAccount(Long accountId) {
+        return shipmentRepository.findAllByAccountId(accountId);
+    }
 }

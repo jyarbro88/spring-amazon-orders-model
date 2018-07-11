@@ -19,7 +19,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/customers/addresses")
+@RequestMapping("/accounts/addresses")
 public class AddressController {
 
 
