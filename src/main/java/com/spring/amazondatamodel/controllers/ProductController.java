@@ -1,10 +1,8 @@
 package com.spring.amazondatamodel.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.spring.amazondatamodel.datalayer.AccountDAO;
 import com.spring.amazondatamodel.datalayer.ProductDAO;
 import com.spring.amazondatamodel.implementors.ProductServiceImpl;
-//import com.spring.amazondatamodel.weblayer.beans.ProductBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,21 +19,31 @@ public class ProductController {
 
     private final ProductServiceImpl productService;
 
+    private ObjectMapper mapper = new ObjectMapper();
+
     @Autowired
     public ProductController(ProductServiceImpl productService) {
         this.productService = productService;
     }
 
-    @GetMapping(produces = "application/json")
+
+    @GetMapping(
+            produces = "application/json"
+    )
     @ResponseBody
     public List<ProductDAO> showAllProducts() {
         return productService.getAllProducts();
     }
 
-    @PostMapping(consumes = "application/json")
+
+    @PostMapping(
+            consumes = "application/json"
+    )
     @ResponseBody
-    public ResponseEntity addNewProduct(@Valid @RequestBody String productJson) {
-        ObjectMapper mapper = new ObjectMapper();
+    public ResponseEntity addNewProduct(
+            @Valid
+            @RequestBody String productJson
+    ) {
         ProductDAO productDAO;
 
         try {
@@ -51,18 +59,17 @@ public class ProductController {
 
     @PutMapping(
             value = {"/{productId}"},
-            consumes = "application/json")
+            consumes = "application/json"
+    )
     @ResponseBody
     public ResponseEntity updateProduct(
             @Valid
             @RequestBody String productJson,
-            @PathVariable(value = "productId") Long productId) {
+            @PathVariable(value = "productId") Long productId
+    ) {
 
-        ObjectMapper mapper = new ObjectMapper();
         ProductDAO productDAO;
-
         Optional<ProductDAO> foundProduct = productService.getProductById(productId);
-
         ProductDAO foundProductDAO = foundProduct.get();
 
         try {
@@ -79,6 +86,24 @@ public class ProductController {
         productService.updateProduct(foundProductDAO);
 
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = {"/{productId}"}, consumes = {"application/json"})
+    @ResponseBody
+    public ResponseEntity deleteProduct(
+            @Valid
+            @RequestBody String productJson,
+            @PathVariable(value = "productId") Long productId) {
+
+        Optional<ProductDAO> productById = productService.getProductById(productId);
+
+        ProductDAO productDAO = productById.get();
+
+
+        productService.deleteProduct(productDAO);
+
+        return new ResponseEntity(HttpStatus.OK);
+
     }
 
 }
