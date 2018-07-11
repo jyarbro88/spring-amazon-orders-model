@@ -9,5 +9,5 @@ import java.util.List;
 @Transactional
 public interface OrderRepository extends JpaRepository<OrderDAO, Long> {
 
-    List<OrderDAO> findAllByAccountId(Long aLong);
+    List<OrderDAO> findAllByAccountIdOrderByOrderDate(Long aLong);
 }

@@ -42,6 +42,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional
     public List<OrderDAO> getAllOrdersWithAccountId(Long accountId) {
-        return orderRepository.findAllByAccountId(accountId);
+        return orderRepository.findAllByAccountIdOrderByOrderDate(accountId);
     }
 }
