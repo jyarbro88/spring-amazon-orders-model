@@ -45,6 +45,11 @@ public class AmazonDataModelApplication {
             AddressDAO addressDAO = new AddressDAO("811 E Stone ct", "apt", "Addison", "IL", "60101", "USA");
             ProductDAO productDAO = new ProductDAO("product name", "product description", 11.99);
             ProductDAO productDAO2 = new ProductDAO("second product name", "product description", 111.99);
+
+
+
+
+
 //            OrderLineItemDAO orderLineItemDAO = new OrderLineItemDAO(1, 33.00, productDAO);
 //            OrderLineItemDAO orderLineItemDAO2 = new OrderLineItemDAO(1, 33.00, productDAO2);
 
