@@ -60,6 +60,38 @@ public class AccountController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @PutMapping(
+            value = {"/{accountId}"},
+            consumes = {"application/json"})
+    @ResponseBody
+    public ResponseEntity updateAccount(
+            @Valid
+            @RequestBody String accountJson,
+            @PathVariable(value = "accountId") Long accountId
+    ) {
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        Optional<AccountDAO> foundAccountById = accountService.getAccountById(accountId);
+
+        AccountDAO mappedAccountDAO;
+        AccountDAO foundAccountDAO = foundAccountById.get();
+
+        try {
+            mappedAccountDAO = mapper.readValue(accountJson, AccountDAO.class);
+        } catch (IOException e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        foundAccountDAO.setFirstName(mappedAccountDAO.getFirstName());
+        foundAccountDAO.setLastName(mappedAccountDAO.getLastName());
+        foundAccountDAO.setEmail(mappedAccountDAO.getEmail());
+
+        accountService.updateAccount(foundAccountDAO);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
     @DeleteMapping(value = {"/{accountId}"}, consumes = {"application/json"})
     @ResponseBody
     public ResponseEntity deleteAccount(
