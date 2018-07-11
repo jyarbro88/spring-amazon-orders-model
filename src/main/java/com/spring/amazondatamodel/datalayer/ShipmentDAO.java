@@ -31,6 +31,19 @@ public class ShipmentDAO {
     @OneToOne
     private AddressDAO shippingAddressDAO;
 
+    public ShipmentDAO() { }
+
+    public ShipmentDAO(Long orderId, Long accountId, Long shippingAddressId, Date shippedDate, Date deliveryDate, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO shippingAddressDAO) {
+        this.orderId = orderId;
+        this.accountId = accountId;
+        this.shippingAddressId = shippingAddressId;
+        this.shippedDate = shippedDate;
+        this.deliveryDate = deliveryDate;
+        this.orderLineItemDAOS = orderLineItemDAOS;
+        this.accountDAO = accountDAO;
+        this.shippingAddressDAO = shippingAddressDAO;
+    }
+
     public Long getId() {
         return id;
     }

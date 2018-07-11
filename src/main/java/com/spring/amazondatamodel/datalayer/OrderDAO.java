@@ -40,12 +40,11 @@ public class OrderDAO {
     // Todo:  All CRUD Operations for ShipmentDAO
 
 
-    public OrderDAO(Date orderDate, Long accountId, Long shippingAddressId, Long billAddressId, Double totalPrice, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
+    public OrderDAO(Date orderDate, Long accountId, Long shippingAddressId, Long billAddressId, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
         this.orderDate = orderDate;
         this.accountId = accountId;
         this.shippingAddressId = shippingAddressId;
         this.billAddressId = billAddressId;
-        this.totalPrice = totalPrice;
         this.orderLineItemDAOS = orderLineItemDAOS;
         this.accountDAO = accountDAO;
         this.billingAddress = billingAddress;

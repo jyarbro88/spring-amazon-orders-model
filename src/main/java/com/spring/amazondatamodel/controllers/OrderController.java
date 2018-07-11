@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,6 +55,7 @@ public class OrderController {
     ) {
         CalculateUtil calculateUtil = new CalculateUtil();
         ObjectMapper mapper = new ObjectMapper();
+        Date orderDate = new Date();
         OrderDAO orderDAO;
 
         try {
@@ -65,6 +67,7 @@ public class OrderController {
         Long accountId = orderDAO.getAccountId();
         Long billAddressId = orderDAO.getBillAddressId();
         Long shippingAddressId = orderDAO.getShippingAddressId();
+
 
         Double orderTotal = 0.00;
 
@@ -102,6 +105,7 @@ public class OrderController {
 
         Double orderTotalAfterTaxes = calculateUtil.calculatePriceAfterTax(orderTotal);
         orderDAO.setTotalPrice(orderTotalAfterTaxes);
+        orderDAO.setOrderDate(orderDate);
         orderService.saveOrder(orderDAO);
 
         return new ResponseEntity(HttpStatus.OK);
