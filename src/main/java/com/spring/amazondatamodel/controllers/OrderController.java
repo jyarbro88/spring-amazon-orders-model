@@ -66,6 +66,17 @@ public class OrderController {
             orderLineItemService.saveOrderLineItem(orderLineItemDAO);
         }
 
+        Double orderTotal = 0.00;
+
+        for (OrderLineItemDAO orderLineItemDAO: orderLineItemDAOS) {
+
+            orderTotal += orderLineItemDAO.getLineItemTotalPrice();
+        }
+
+        Double orderTotalAfterTaxes = calculateUtil.calculatePriceAfterTax(orderTotal);
+
+        orderDAO.setTotalPrice(orderTotalAfterTaxes);
+
         orderService.saveOrder(orderDAO);
 
         return new ResponseEntity(HttpStatus.OK);

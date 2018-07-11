@@ -7,8 +7,11 @@ public class CalculateUtil {
         return price * quantity;
     }
 
-    public Double calculatePriceAfterTax(Double price, Double taxAmount) {
+    public Double calculatePriceAfterTax(Double totalBeforeTaxes) {
 
-        return price * taxAmount;
+        Double taxAmount = .0978;
+        Double totalTaxes = totalBeforeTaxes * taxAmount;
+
+        return totalBeforeTaxes + totalTaxes;
     }
 }
