@@ -1,7 +1,6 @@
 package com.spring.amazondatamodel.datalayer;
 
 import javax.persistence.*;
-import java.sql.Blob;
 
 @Entity
 @Table(name = "products")

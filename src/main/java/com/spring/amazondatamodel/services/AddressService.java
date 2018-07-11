@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface AddressService {
 
-    public abstract void saveAddress(AddressDAO addressDAO);
-    public abstract void updateAddress(AddressDAO addressDAO);
-    public abstract void deleteAddress(AddressDAO addressDAO);
-    public abstract List<AddressDAO> getAllAddresses();
+    void saveAddress(AddressDAO addressDAO);
+    void updateAddress(AddressDAO addressDAO);
+    void deleteAddress(AddressDAO addressDAO);
+    List<AddressDAO> getAllAddresses();
 }

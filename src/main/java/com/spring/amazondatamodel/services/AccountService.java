@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface AccountService {
 
-    public abstract void saveAccount(AccountDAO accountDAO);
-    public abstract void updateAccount(AccountDAO accountDAO);
-    public abstract void deleteAccount(AccountDAO accountDAO);
-    public abstract List<AccountDAO> getAllAccounts();
+    void saveAccount(AccountDAO accountDAO);
+    void updateAccount(AccountDAO accountDAO);
+    void deleteAccount(AccountDAO accountDAO);
+    List<AccountDAO> getAllAccounts();
 
 }

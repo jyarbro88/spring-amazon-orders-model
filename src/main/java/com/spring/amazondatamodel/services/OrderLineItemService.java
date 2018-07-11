@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface OrderLineItemService {
 
-    public abstract void saveOrderLineItem(OrderLineItemDAO orderLineItemDAO);
-    public abstract void updateOrderLineItem(OrderLineItemDAO orderLineItemDAO);
-    public abstract void deleteOrderLineItem(OrderLineItemDAO orderLineItemDAO);
-    public abstract List<OrderLineItemDAO> getAllOrderLineItems();
+    void saveOrderLineItem(OrderLineItemDAO orderLineItemDAO);
+    void updateOrderLineItem(OrderLineItemDAO orderLineItemDAO);
+    void deleteOrderLineItem(OrderLineItemDAO orderLineItemDAO);
+    List<OrderLineItemDAO> getAllOrderLineItems();
 }

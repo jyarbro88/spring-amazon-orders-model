@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ShipmentService {
 
-    public abstract void saveShipment(ShipmentDAO shipmentDAO);
-    public abstract void updateShipment(ShipmentDAO shipmentDAO);
-    public abstract void deleteShipment(ShipmentDAO shipmentDAO);
-    public abstract List<ShipmentDAO> getAllShipments();
+    void saveShipment(ShipmentDAO shipmentDAO);
+    void updateShipment(ShipmentDAO shipmentDAO);
+    void deleteShipment(ShipmentDAO shipmentDAO);
+    List<ShipmentDAO> getAllShipments();
 }

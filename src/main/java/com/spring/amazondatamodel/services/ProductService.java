@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface ProductService {
 
-    public abstract Optional<ProductDAO> getProductById(Long id);
-    public abstract void saveProduct(ProductDAO productDAO);
-    public abstract void updateProduct(ProductDAO productDAO);
-    public abstract void deleteProduct(ProductDAO productDAO);
-    public abstract List<ProductDAO> getAllProducts();
+    Optional<ProductDAO> getProductById(Long id);
+    void saveProduct(ProductDAO productDAO);
+    void updateProduct(ProductDAO productDAO);
+    void deleteProduct(ProductDAO productDAO);
+    List<ProductDAO> getAllProducts();
 }

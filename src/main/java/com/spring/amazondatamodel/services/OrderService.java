@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface OrderService {
 
-    public abstract void saveOrder(OrderDAO orderDAO);
-    public abstract void updateOrder(OrderDAO orderDAO);
-    public abstract void deleteOrder(OrderDAO orderDAO);
-    public abstract List<OrderDAO> getAllOrders();
+    void saveOrder(OrderDAO orderDAO);
+    void updateOrder(OrderDAO orderDAO);
+    void deleteOrder(OrderDAO orderDAO);
+    List<OrderDAO> getAllOrders();
 }

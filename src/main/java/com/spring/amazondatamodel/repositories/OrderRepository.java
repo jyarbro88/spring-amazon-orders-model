@@ -10,4 +10,5 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<OrderDAO, Long> {
 
     List<OrderDAO> findAllByAccountIdOrderByOrderDate(Long accountId);
+
 }
