@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/accounts")
@@ -20,7 +21,6 @@ public class AccountController {
 
     // Todo:  Add Account Object to Order
     // Todo:  Handle Put operation
-    // Todo:  Handle DELETE operation
 
     private final AccountServiceImpl accountService;
 
@@ -59,6 +59,22 @@ public class AccountController {
         }
         accountDAO.setAddressDAOS(addressDAOS);
         accountService.saveAccount(accountDAO);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = {"/{accountId}"}, consumes = {"application/json"})
+    @ResponseBody
+    public ResponseEntity deleteAccount(
+            @Valid
+            @RequestBody String accountJson,
+            @PathVariable(value = "accountId") Long accountId) {
+
+        Optional<AccountDAO> foundAccount = accountService.getAccountById(accountId);
+
+        AccountDAO foundAccountDAO = foundAccount.get();
+
+        accountService.deleteAccount(foundAccountDAO);
 
         return new ResponseEntity(HttpStatus.OK);
     }

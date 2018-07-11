@@ -36,11 +36,7 @@ public class OrderDAO {
 
     // Todo:  Add Address Object to Order
     // Todo:  Add Account Object to Order
-    // Todo:  Total up the OrderTotal based on OrderLineItemDAO total (which totals up based on qty)
     // Todo:  Add Shipping Address Object to Order
-
-    // Todo:  Need to total up OrderLineItem qty and then multiply by price to hand back to OrderDAO
-
 
     // Todo:  Get ShipmentDAO implemented
 
