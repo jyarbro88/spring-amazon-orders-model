@@ -27,18 +27,14 @@ public class ProductController {
     }
 
 
-    @GetMapping(
-            produces = "application/json"
-    )
+    @GetMapping(produces = "application/json")
     @ResponseBody
     public List<ProductDAO> showAllProducts() {
         return productService.getAllProducts();
     }
 
 
-    @PostMapping(
-            consumes = "application/json"
-    )
+    @PostMapping(consumes = "application/json")
     @ResponseBody
     public ResponseEntity addNewProduct(
             @Valid
@@ -98,10 +94,7 @@ public class ProductController {
             @PathVariable(value = "productId") Long productId) {
 
         Optional<ProductDAO> productById = productService.getProductById(productId);
-
         ProductDAO productDAO = productById.get();
-
-
         productService.deleteProduct(productDAO);
 
         return new ResponseEntity(HttpStatus.OK);

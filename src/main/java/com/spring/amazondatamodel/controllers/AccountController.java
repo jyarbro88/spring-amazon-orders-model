@@ -3,8 +3,10 @@ package com.spring.amazondatamodel.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.amazondatamodel.datalayer.AccountDAO;
 import com.spring.amazondatamodel.datalayer.AddressDAO;
+import com.spring.amazondatamodel.datalayer.OrderDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.AddressServiceImpl;
+import com.spring.amazondatamodel.implementors.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,18 +24,29 @@ public class AccountController {
     // Todo:  Handle Put operation
 
     private final AccountServiceImpl accountService;
-    private AddressServiceImpl addressService;
+    private final AddressServiceImpl addressService;
+    private final OrderServiceImpl orderService;
 
     @Autowired
-    public AccountController(AccountServiceImpl accountService, AddressServiceImpl addressService) {
+    public AccountController(AccountServiceImpl accountService, AddressServiceImpl addressService, OrderServiceImpl orderService) {
         this.accountService = accountService;
         this.addressService = addressService;
+        this.orderService = orderService;
     }
 
     @GetMapping(produces = "application/json")
     @ResponseBody
     public List<AccountDAO> showAllAccounts() {
         return accountService.getAllAccounts();
+    }
+
+    @GetMapping(value = {"/orders/{accountId}"}, produces = {"application/json"})
+    @ResponseBody
+    public List<OrderDAO> showAllOrdersForAccount(
+            @Valid
+            @PathVariable(value = "accountId") Long accountId) {
+
+        return orderService.getAllOrdersWithAccountId(accountId);
     }
 
 
@@ -92,7 +105,9 @@ public class AccountController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = {"/{accountId}"}, consumes = {"application/json"})
+    @DeleteMapping(
+            value = {"/{accountId}"},
+            consumes = {"application/json"})
     @ResponseBody
     public ResponseEntity deleteAccount(
             @Valid
@@ -100,9 +115,7 @@ public class AccountController {
             @PathVariable(value = "accountId") Long accountId) {
 
         Optional<AccountDAO> foundAccount = accountService.getAccountById(accountId);
-
         AccountDAO foundAccountDAO = foundAccount.get();
-
         accountService.deleteAccount(foundAccountDAO);
 
         return new ResponseEntity(HttpStatus.OK);
