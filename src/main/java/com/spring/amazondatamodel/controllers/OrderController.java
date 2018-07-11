@@ -25,11 +25,8 @@ public class OrderController {
     // Todo:  CRUD Handle DELETE operation
 
     private final OrderServiceImpl orderService;
-
     private final OrderLineItemServiceImpl orderLineItemService;
-
     private final AccountServiceImpl accountService;
-
     private final AddressServiceImpl addressService;
 
     @Autowired

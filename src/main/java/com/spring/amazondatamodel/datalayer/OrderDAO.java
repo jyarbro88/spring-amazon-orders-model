@@ -36,7 +36,7 @@ public class OrderDAO {
 
     // Todo:  All CRUD Operations for Address
     // Todo:  All CRUD Operations for OrderLineItem
-    // Todo:  All CRUD Operations for Shipment
+    // Todo:  All CRUD Operations for ShipmentDAO
 
 
     public OrderDAO(Date orderDate, Long accountId, Long shippingAddressId, Long billAddressId, Double totalPrice, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
