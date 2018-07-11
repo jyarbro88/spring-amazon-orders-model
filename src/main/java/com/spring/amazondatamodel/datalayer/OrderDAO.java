@@ -20,9 +20,10 @@ public class OrderDAO {
     private Long shippingAddressId;
     @Column(name = "billing_address_id", insertable = false, updatable = false)
     private Long billAddressId;
-
     @Column(name = "order_total")
     private Double totalPrice;
+
+
     @OneToMany
     private List<OrderLineItemDAO> orderLineItemDAOS;
     @OneToOne

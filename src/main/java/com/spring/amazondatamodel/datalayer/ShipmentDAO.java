@@ -13,36 +13,23 @@ public class ShipmentDAO {
     @Id
     @GeneratedValue
     private Long id;
-
-
-    @ManyToOne
-    private Long accountId;
-
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    private Long addressId;
-
-//    @OneToMany
-//    @JoinColumn(name = "order_line_item_id")
-//    private OrderLineItemDAO orderLineItemDAO;
-
-
-    @OneToMany
-    private List<OrderLineItemDAO> orderLineItems;
-
-
-    @OneToOne
-//    @JoinColumn(name = "order_id")
+    @Column(name = "order_id")
     private Long orderId;
-
-
-
-
+    @Column(name = "account_id")
+    private Long accountId;
+    @Column(name = "shipping_address_id")
+    private Long shippingAddressId;
     @Column(name = "shipped_date")
     private Date shippedDate;
     @Column(name = "delivery_date")
     private Date deliveryDate;
 
+    @OneToMany
+    private List<OrderLineItemDAO> orderLineItemDAOS;
+    @OneToOne
+    private AccountDAO accountDAO;
+    @OneToOne
+    private AddressDAO shippingAddressDAO;
 
     public Long getId() {
         return id;
@@ -50,22 +37,6 @@ public class ShipmentDAO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
-    public List<OrderLineItemDAO> getOrderLineItems() {
-        return orderLineItems;
-    }
-
-    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItems) {
-        this.orderLineItems = orderLineItems;
     }
 
     public Long getOrderId() {
@@ -76,12 +47,20 @@ public class ShipmentDAO {
         this.orderId = orderId;
     }
 
-    public Long getAddressId() {
-        return addressId;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setAddressId(Long addressId) {
-        this.addressId = addressId;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
+    public Long getShippingAddressId() {
+        return shippingAddressId;
+    }
+
+    public void setShippingAddressId(Long shippingAddressId) {
+        this.shippingAddressId = shippingAddressId;
     }
 
     public Date getShippedDate() {
@@ -98,5 +77,29 @@ public class ShipmentDAO {
 
     public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
+    }
+
+    public List<OrderLineItemDAO> getOrderLineItemDAOS() {
+        return orderLineItemDAOS;
+    }
+
+    public void setOrderLineItemDAOS(List<OrderLineItemDAO> orderLineItemDAOS) {
+        this.orderLineItemDAOS = orderLineItemDAOS;
+    }
+
+    public AccountDAO getAccountDAO() {
+        return accountDAO;
+    }
+
+    public void setAccountDAO(AccountDAO accountDAO) {
+        this.accountDAO = accountDAO;
+    }
+
+    public AddressDAO getShippingAddressDAO() {
+        return shippingAddressDAO;
+    }
+
+    public void setShippingAddressDAO(AddressDAO shippingAddressDAO) {
+        this.shippingAddressDAO = shippingAddressDAO;
     }
 }
