@@ -70,10 +70,11 @@ public class AmazonDataModelApplication {
 
             Date date = new Date();
 
+            orderService.saveOrder(orderDAO);
+
             ShipmentDAO shipmentDAO = new ShipmentDAO(orderDAO.getId(), orderDAO.getAccountId(), orderDAO.getShippingAddressId(), date, null, orderLineItemList, orderDAO.getAccountDAO(), orderDAO.getShippingAddress());
 
             shipmentService.saveShipment(shipmentDAO);
-            orderService.saveOrder(orderDAO);
 
         };
     }

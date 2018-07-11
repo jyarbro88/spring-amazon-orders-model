@@ -42,26 +42,23 @@ public class AddressController {
 
         Integer counter = 0;
 
-        ObjectMapper mapper = new ObjectMapper();
-
         Optional<AccountDAO> foundAccountById = accountService.getAccountById(accountId);
         AccountDAO foundAccountDAO = foundAccountById.get();
-        List<AddressDAO> foundListOfAddressDAOS = foundAccountDAO.getAddressDAOS();
 
-        int sizeOfFoundAddressList = foundListOfAddressDAOS.size();
-
-        while(counter < sizeOfFoundAddressList) {
-            counter++;
-            AddressDAO addressDAO = foundListOfAddressDAOS.get(counter);
-//            Long addressId = addressDAO.getId();
+//        int sizeOfFoundAddressList = foundListOfAddressDAOS.size();
 //
-//            Optional<AddressDAO> foundAddressById = addressService.getAddressById(addressId);
-//            AddressDAO foundAddressDAO = foundAddressById.get();
+//        while(counter < sizeOfFoundAddressList) {
+//            counter++;
+//            AddressDAO addressDAO = foundListOfAddressDAOS.get(counter);
+////            Long addressId = addressDAO.getId();
+////
+////            Optional<AddressDAO> foundAddressById = addressService.getAddressById(addressId);
+////            AddressDAO foundAddressDAO = foundAddressById.get();
+//
+//            foundListOfAddressDAOS.add(addressDAO);
+//        }
 
-            foundListOfAddressDAOS.add(addressDAO);
-        }
-
-        return foundListOfAddressDAOS;
+        return foundAccountDAO.getAddressDAOS();
     }
 
 }
