@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "df5492e2-ce9c-4b0d-9143-6510ca7479a3",
+		"name": "orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST-new-product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Logitech Keyboard\",\n\t\"description\": \"Color: Silver\",\n\t\"price\": 59.99\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-account-with-address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"addressDAOS\": [\n            {\n                \"addressOne\": \"777 N Howard\",\n                \"addressTwo\": \"apt\",\n                \"city\": \"Elmhurst\",\n                \"state\": \"IL\",\n                \"zipCode\": \"60103\",\n                \"country\": \"USA\"\n            }, \n            {\n                \"addressOne\": \"424 n shoreline dr\",\n                \"addressTwo\": \"apt\",\n                \"city\": \"Elmhurst\",\n                \"state\": \"IL\",\n                \"zipCode\": \"60103\",\n                \"country\": \"USA\"\n            }\n            \n        ],\n        \"firstName\": \"jimmy\",\n        \"lastName\": \"johns\",\n        \"email\": \"jyarbrough@email.com\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"accountId\": 6,\n        \"shippingAddressId\": 10,\n        \"billAddressId\": 11,\n        \"orderLineItemDAOS\": [\n            {\n                \"productDAO\": {\n                    \"id\": 1,\n                    \"name\": \"product name\",\n                    \"description\": \"product description\",\n                    \"price\": 11.99\n                },\n                \"quantity\": 1,\n                \"lineItemTotalPrice\": 11.99\n            }\n        ],\n        \"accountDAO\": {\n            \"id\": 6\n        }\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-all-accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-all-products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n\t{\n        \"name\": \"newbie\",\n        \"description\": \"bla bla bla\",\n        \"price\": 39.99\n    }\n\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-all-shipments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/shipments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-address-for-accountId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/accounts/addresses/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"addresses",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-all-shipments-for-account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/accounts/shipments/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"shipments",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-all-orders-for-account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/accounts/orders/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-all-orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"updating name\",\n\t\"description\": \"updating description\",\n\t\"price\": 9.78\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-account",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"jimmy PUT update\",\n\t\"lastName\": \"johns PUT update\",\n\t\"email\": \"jyarbrough@email.com PUT update\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-address",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"addressOne\": \"811 E Stone ct UPDATED\",\n\t\"addressTwo\": \"apt UPDATE\",\n\t\"city\": \"Addison UPDATED\",\n\t\"state\": \"IL UPDATED\",\n\t\"zipCode\": \"60101 UPDATED\",\n\t\"country\": \"USA UPDATED\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts/addresses/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"addresses",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-account",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ }\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
