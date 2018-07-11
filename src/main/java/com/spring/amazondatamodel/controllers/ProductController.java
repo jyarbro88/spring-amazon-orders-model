@@ -59,19 +59,24 @@ public class ProductController {
             @PathVariable(value = "productId") Long productId) {
 
         ObjectMapper mapper = new ObjectMapper();
-        ProductDAO productDAO = null;
+        ProductDAO productDAO;
 
         Optional<ProductDAO> foundProduct = productService.getProductById(productId);
 
-        Optional<ProductDAO> productById = productService.getProductById(productId);
+        ProductDAO foundProductDAO = foundProduct.get();
 
         try {
             productDAO = mapper.readValue(productJson, ProductDAO.class);
+
         } catch (IOException e) {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        productService.updateProduct(productDAO);
+        foundProductDAO.setName(productDAO.getName());
+        foundProductDAO.setDescription(productDAO.getDescription());
+        foundProductDAO.setPrice(productDAO.getPrice());
+
+        productService.updateProduct(foundProductDAO);
 
         return new ResponseEntity(HttpStatus.OK);
     }

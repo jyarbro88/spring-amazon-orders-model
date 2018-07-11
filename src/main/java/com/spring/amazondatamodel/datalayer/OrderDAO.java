@@ -93,15 +93,6 @@ public class OrderDAO {
         this.addressId = addressId;
     }
 
-//    public List<OrderLineItemDAO> getOrderLineItems() {
-//        return orderLineItemDAOS;
-//    }
-//
-//    public void setOrderLineItems(List<OrderLineItemDAO> orderLineItemDAOS) {
-//        this.orderLineItemDAOS = orderLineItemDAOS;
-//    }
-
-
     public List<OrderLineItemDAO> getOrderLineItemDAOS() {
         return orderLineItemDAOS;
     }

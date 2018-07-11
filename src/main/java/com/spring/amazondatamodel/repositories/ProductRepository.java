@@ -2,8 +2,11 @@ package com.spring.amazondatamodel.repositories;
 
 import com.spring.amazondatamodel.datalayer.ProductDAO;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Transactional
 public interface ProductRepository extends JpaRepository<ProductDAO, Long> {
@@ -12,6 +15,6 @@ public interface ProductRepository extends JpaRepository<ProductDAO, Long> {
 
 //    List<ProductDAO> findByName()
 
-//    Optional<ProductDAO> findById(Long productId);
+    Optional<ProductDAO> findById(Long productId);
 
 }
