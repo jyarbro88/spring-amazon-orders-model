@@ -5,18 +5,13 @@ import com.spring.amazondatamodel.datalayer.AccountDAO;
 import com.spring.amazondatamodel.datalayer.AddressDAO;
 import com.spring.amazondatamodel.implementors.AccountServiceImpl;
 import com.spring.amazondatamodel.implementors.AddressServiceImpl;
-import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +19,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/accounts/addresses")
 public class AddressController {
-
 
     private final AddressServiceImpl addressService;
     private final AccountServiceImpl accountService;
@@ -81,6 +75,5 @@ public class AddressController {
         addressService.updateAddress(foundAddressDAO);
 
         return new ResponseEntity(HttpStatus.OK);
-
     }
 }

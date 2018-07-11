@@ -26,20 +26,17 @@ public class ProductController {
         this.productService = productService;
     }
 
-
     @GetMapping(produces = "application/json")
     @ResponseBody
     public List<ProductDAO> showAllProducts() {
         return productService.getAllProducts();
     }
 
-
     @PostMapping(consumes = "application/json")
     @ResponseBody
     public ResponseEntity addNewProduct(
             @Valid
-            @RequestBody String productJson
-    ) {
+            @RequestBody String productJson) {
         ProductDAO productDAO;
 
         try {

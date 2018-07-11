@@ -23,8 +23,6 @@ import java.util.Optional;
 @RequestMapping("/accounts")
 public class AccountController {
 
-    // Todo:  Handle Put operation
-
     private final AccountServiceImpl accountService;
     private final AddressServiceImpl addressService;
     private final OrderServiceImpl orderService;
@@ -55,13 +53,11 @@ public class AccountController {
 
     @GetMapping(
             value = {"/shipments/{accountId}"},
-            produces = {"application/json"}
-    )
+            produces = {"application/json"})
     @ResponseBody
     public List<ShipmentDAO> showAllShipmentsForAccount(
             @Valid
-            @PathVariable(value = "accountId") Long accountId
-    ) {
+            @PathVariable(value = "accountId") Long accountId) {
         return shipmentService.getAllShipmentsForAccount(accountId);
     }
 
@@ -96,8 +92,7 @@ public class AccountController {
     public ResponseEntity updateAccount(
             @Valid
             @RequestBody String accountJson,
-            @PathVariable(value = "accountId") Long accountId
-    ) {
+            @PathVariable(value = "accountId") Long accountId) {
 
         ObjectMapper mapper = new ObjectMapper();
 

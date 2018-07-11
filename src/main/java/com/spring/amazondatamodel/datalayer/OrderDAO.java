@@ -33,13 +33,6 @@ public class OrderDAO {
     @OneToOne
     private AddressDAO shippingAddress;
 
-    // Todo:  Get ShipmentDAO implemented
-
-    // Todo:  All CRUD Operations for Address
-    // Todo:  All CRUD Operations for OrderLineItem
-    // Todo:  All CRUD Operations for ShipmentDAO
-
-
     public OrderDAO(Date orderDate, Long accountId, Long shippingAddressId, Long billAddressId, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
         this.orderDate = orderDate;
         this.accountId = accountId;

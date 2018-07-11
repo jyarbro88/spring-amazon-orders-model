@@ -22,9 +22,6 @@ import java.util.Optional;
 @RequestMapping("/orders")
 public class OrderController {
 
-    // Todo:  CRUD Handle PUT operation
-    // Todo:  CRUD Handle DELETE operation
-
     private final OrderServiceImpl orderService;
     private final OrderLineItemServiceImpl orderLineItemService;
     private final AccountServiceImpl accountService;
@@ -44,15 +41,12 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
-
-
     @PostMapping(consumes = "application/json")
     @ResponseBody
     public ResponseEntity addNewOrder(
             @Valid
-            @RequestBody String orderJson
+            @RequestBody String orderJson) {
 
-    ) {
         CalculateUtil calculateUtil = new CalculateUtil();
         ObjectMapper mapper = new ObjectMapper();
         Date orderDate = new Date();
@@ -98,7 +92,7 @@ public class OrderController {
         }
 
 
-        for (OrderLineItemDAO orderLineItemDAO: orderLineItemDAOS) {
+        for (OrderLineItemDAO orderLineItemDAO : orderLineItemDAOS) {
 
             orderTotal += orderLineItemDAO.getLineItemTotalPrice();
         }
