@@ -28,12 +28,22 @@ public class OrderDAO {
     @OneToMany
     private List<OrderLineItemDAO> orderLineItemDAOS;
 
+    @OneToOne
+    private AccountDAO accountDAO;
+
+    @OneToOne
+    private AddressDAO billingAddress;
+
+    @OneToOne
+    private AddressDAO shippingAddress;
+
 
 
     //    private List<OrderLineItemDAO> orderLineItemDAOS;
     //    @JoinColumn(name = "id")
     //    @OneToMany
 
+    // Todo:  Add Account Object to Order
     // Todo:  Add Address Object to Order
     // Todo:  Add Account Object to Order
     // Todo:  Add Shipping Address Object to Order
@@ -46,10 +56,6 @@ public class OrderDAO {
 
 
 
-    //    private AccountDAO account;
-    //    @JoinColumn(name = "account_id", referencedColumnName = "id")
-//    @ManyToOne
-
     //    private List<AddressDAO> addressDAOS;
     //    @JoinColumn(name = "address_id", referencedColumnName = "id")
 //    @ManyToOne
@@ -61,15 +67,42 @@ public class OrderDAO {
 //    private Long orderLineItemsId;
 
 
-    public OrderDAO(Date orderDate, Long accountId, Long addressId, Double totalPrice, List<OrderLineItemDAO> orderLineItemDAO) {
+    public OrderDAO(Date orderDate, Long accountId, Long addressId, Double totalPrice, List<OrderLineItemDAO> orderLineItemDAOS, AccountDAO accountDAO, AddressDAO billingAddress, AddressDAO shippingAddress) {
         this.orderDate = orderDate;
         this.accountId = accountId;
         this.addressId = addressId;
         this.totalPrice = totalPrice;
-        this.orderLineItemDAOS = orderLineItemDAO;
+        this.orderLineItemDAOS = orderLineItemDAOS;
+        this.accountDAO = accountDAO;
+        this.billingAddress = billingAddress;
+        this.shippingAddress = shippingAddress;
     }
 
     public OrderDAO() {
+    }
+
+    public AccountDAO getAccountDAO() {
+        return accountDAO;
+    }
+
+    public void setAccountDAO(AccountDAO accountDAO) {
+        this.accountDAO = accountDAO;
+    }
+
+    public AddressDAO getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(AddressDAO billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public AddressDAO getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(AddressDAO shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 
     public Long getId() {

@@ -61,7 +61,7 @@ public class AmazonDataModelApplication {
             accountDAO.setAddressDAOS(addressDAOS);
             addressService.saveAddress(addressDAO);
             accountService.saveAccount(accountDAO);
-            OrderDAO orderDAO = new OrderDAO(new Date(2018,2,17), accountDAO.getId(), addressDAO.getId(), 23.98, orderLineItemDAOS);
+            OrderDAO orderDAO = new OrderDAO(new Date(2018,2,17), accountDAO.getId(), addressDAO.getId(), 23.98, orderLineItemDAOS, accountDAO, addressDAO, addressDAO);
             orderService.saveOrder(orderDAO);
         };
     }
